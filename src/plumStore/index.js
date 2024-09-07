@@ -15,8 +15,8 @@ const state = reactive({
     },
   ],
   usePageTransition: false,
-  theme: "dim-background", // Default theme
-  textColor: "green", // Default text color
+  theme: "dark-background", // Default theme
+  textColor: "white", // Default text color
   textColorOptions: {
     "bright-background": ["black", "green"],
     "dim-background": ["black", "green"],
