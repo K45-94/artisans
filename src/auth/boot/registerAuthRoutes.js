@@ -56,6 +56,12 @@ export default boot(({ router }) => {
                 meta: { authOnly: true },
                 component: () => import("src/pages/Profile/PageThemes.vue"),
               },
+              {
+                path: "/profile/settings/supportplumartisans",
+                meta: { authOnly: true },
+                component: () =>
+                  import("src/pages/Profile/PageSupportPlumArtisans.vue"),
+              },
             ],
           },
         ],

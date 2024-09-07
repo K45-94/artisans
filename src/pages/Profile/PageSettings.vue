@@ -51,36 +51,17 @@
               </q-item>
             </q-card>
             <q-space class="q-pa-sm" />
+
             <q-card flat>
-              <q-item>
+              <q-item to="/profile/settings/supportplumartisans">
                 <q-item-section class="col-6">
                   <q-item-label class="text-bold center-left"
-                    >Help n Support Artisans</q-item-label
+                    >Support Artisans</q-item-label
                   >
                 </q-item-section>
                 <q-item-section class="col-6">
                   <q-btn
-                    to=""
-                    class="absolute-right"
-                    icon="eva-arrow-ios-forward-outline"
-                    flat
-                    dense
-                    color="secondary"
-                  />
-                </q-item-section>
-              </q-item>
-            </q-card>
-            <q-space class="q-pa-sm" />
-            <q-card flat>
-              <q-item>
-                <q-item-section class="col-6">
-                  <q-item-label class="text-bold center-left"
-                    >About Plum Artisans</q-item-label
-                  >
-                </q-item-section>
-                <q-item-section class="col-6">
-                  <q-btn
-                    to=""
+                    to="/profile/settings/supportplumartisans"
                     class="absolute-right"
                     icon="eva-arrow-ios-forward-outline"
                     flat

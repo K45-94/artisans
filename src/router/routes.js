@@ -24,6 +24,11 @@ const routes = [
                 path: "themes", // Relative path without leading slash
                 component: () => import("src/pages/Profile/PageThemes.vue"),
               },
+              {
+                path: "supportplumartisans", // Relative path without leading slash
+                component: () =>
+                  import("src/pages/Profile/PageSupportPlumArtisans.vue"),
+              },
             ],
           },
         ],

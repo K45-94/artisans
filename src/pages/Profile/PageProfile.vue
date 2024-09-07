@@ -8,7 +8,6 @@
         <div class="row q-col-gutter-lg">
           <div class="col-12 col-sm-8">
             <q-list class="full-width">
-              <q-space class="q-pa-sm" />
               <q-item to="/profile/settings" clickable>
                 <q-item-section avatar class="col-4">
                   <q-avatar color="primary" icon="eva-settings-2"></q-avatar>
