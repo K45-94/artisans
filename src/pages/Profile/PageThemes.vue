@@ -54,7 +54,7 @@ export default defineComponent({
   },
   name: "PageThemes",
   setup() {
-    const themes = ref("op2");
+    const themes = ref("op3");
     const backgroundClass = ref("");
     const textModel = ref(2); // Default to medium size
     const fontWeightModel = ref(2);
