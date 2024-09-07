@@ -7,11 +7,7 @@ const state = reactive({
       to: "/artisans",
       icon: "eva-globe-outline",
     },
-    {
-      root: "/light",
-      to: "/light",
-      icon: "eva-bulb",
-    },
+
     {
       root: "/profile",
       to: "/profile",

@@ -30,62 +30,6 @@
               color="secondary"
             />
           </div>
-
-          <q-space />
-          <div>
-            <p>Change font size</p>
-            <q-slider
-              v-model="textModel"
-              color="secondary"
-              markers
-              :min="0"
-              :max="4"
-              marker-labels
-              track-size="3px"
-              thumb-color="secondary"
-            >
-              <template v-slot:marker-label-group="{ markerList }">
-                <q-icon
-                  v-for="val in [0, 4]"
-                  :key="val"
-                  :class="markerList[val].classes"
-                  :style="markerList[val].style"
-                  :size="val === 0 ? 'xs' : 'lg'"
-                  color="secondary"
-                  :name="val === 0 ? 'ti-smallcap' : 'ti-smallcap'"
-                  @click="textModel = val"
-                />
-              </template>
-            </q-slider>
-          </div>
-
-          <q-space />
-          <div>
-            <p>Change font weight</p>
-            <q-slider
-              v-model="fontWeightModel"
-              color="secondary"
-              markers
-              :min="0"
-              :max="5"
-              marker-labels
-              track-size="3px"
-              thumb-color="secondary"
-            >
-              <template v-slot:marker-label-group="{ markerList }">
-                <q-icon
-                  v-for="val in [0, 5]"
-                  :key="val"
-                  :class="markerList[val].classes"
-                  :style="markerList[val].style"
-                  :size="val === 0 ? 'md' : 'md'"
-                  color="secondary"
-                  :name="val === 0 ? 'ti-smallcap' : 'ti-smallcap'"
-                  @click="fontWeightModel = val"
-                />
-              </template>
-            </q-slider>
-          </div>
         </div>
       </div>
       <div class="page-body-spacer-footer"></div>
@@ -107,9 +51,6 @@ export default defineComponent({
     PageHeader,
     PageHeaderButtonBackLeft,
     QOptionGroup,
-    QSlider,
-    QSpace,
-    QIcon,
   },
   name: "PageThemes",
   setup() {

@@ -29,26 +29,7 @@
                 </q-item-section>
               </q-item>
             </q-card>
-            <q-space class="q-pa-sm" />
-            <q-card flat>
-              <q-item>
-                <q-item-section class="col-6">
-                  <q-item-label class="text-bold center-left"
-                    >Security</q-item-label
-                  >
-                </q-item-section>
-                <q-item-section class="col-6">
-                  <q-btn
-                    to=""
-                    class="absolute-right"
-                    icon="eva-arrow-ios-forward-outline"
-                    flat
-                    dense
-                    color="secondary"
-                  />
-                </q-item-section>
-              </q-item>
-            </q-card>
+
             <q-space class="q-pa-sm" />
             <q-card flat>
               <q-item to="/profile/settings/themes">
@@ -74,7 +55,7 @@
               <q-item>
                 <q-item-section class="col-6">
                   <q-item-label class="text-bold center-left"
-                    >Help n Support</q-item-label
+                    >Help n Support Artisans</q-item-label
                   >
                 </q-item-section>
                 <q-item-section class="col-6">
@@ -94,7 +75,7 @@
               <q-item>
                 <q-item-section class="col-6">
                   <q-item-label class="text-bold center-left"
-                    >About Plum</q-item-label
+                    >About Plum Artisans</q-item-label
                   >
                 </q-item-section>
                 <q-item-section class="col-6">
