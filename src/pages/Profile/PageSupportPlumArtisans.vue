@@ -28,7 +28,7 @@
             <!-- Mission Section -->
             <div class="text-left q-mb-md">
               <h4 class="text-caption text-weight-bold">Our Mission</h4>
-              <p class="text-weight-regular">
+              <p class="text-weight-light">
                 To empower local artisans by giving them a platform to connect
                 with clients and grow their businesses. Our mission is to bridge
                 the gap between quality service providers and those who need
@@ -40,14 +40,14 @@
             <div class="text-left q-mb-md">
               <h4 class="text-caption text-weight-bold">What We Offer</h4>
               <ul class="q-pl-md">
-                <li class="text-weight-medium">
+                <li class="text-weight-light">
                   Comprehensive Artisan Listings
                 </li>
-                <li class="text-weight-medium">Trusted Professionals</li>
-                <li class="text-weight-medium">Direct Contact</li>
-                <li class="text-weight-medium">User-Friendly Experience</li>
+                <li class="text-weight-light">Trusted Professionals</li>
+                <li class="text-weight-light">Direct Contact</li>
+                <li class="text-weight-light">User-Friendly Experience</li>
               </ul>
-              <p class="text-weight-regular">
+              <p class="text-weight-light">
                 Our commitment is to promote local talent and encourage quality
                 craftsmanship. Every user joins us in the journey to support
                 artisans and enhance the local community.
@@ -60,8 +60,8 @@
                 Ways You Can Support
               </h4>
               <ol class="q-pl-md">
-                <li class="text-weight-medium">Hire an Artisan.</li>
-                <li class="text-weight-medium">
+                <li class="text-weight-bold">Hire an Artisan.</li>
+                <li class="text-weight-bold">
                   Share their work on various platforms.
                 </li>
               </ol>
@@ -85,10 +85,3 @@ export default defineComponent({
   name: "SupportPlumArtisans",
 });
 </script>
-
-<style lang="scss" scoped>
-// Custom styles for About Plum Artisans page
-.text-brand {
-  color: #3e4e5e; // Example color
-}
-</style>
