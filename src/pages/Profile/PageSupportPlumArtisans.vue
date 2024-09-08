@@ -13,7 +13,7 @@
           <div class="col-12 col-sm-8">
             <!-- Introduction Section -->
             <div class="text-left q-mb-md">
-              <h3 class="text-weight-bold text-uppercase">
+              <h3 class="text-caption text-weight-bold text-uppercase">
                 a Platform for Local Craftsmanship and Expertise
               </h3>
               <p class="text-weight-light">
@@ -27,7 +27,7 @@
 
             <!-- Mission Section -->
             <div class="text-left q-mb-md">
-              <h4 class="text-weight-bold">Our Mission</h4>
+              <h4 class="text-caption text-weight-bold">Our Mission</h4>
               <p class="text-weight-regular">
                 To empower local artisans by giving them a platform to connect
                 with clients and grow their businesses. Our mission is to bridge
@@ -38,7 +38,7 @@
 
             <!-- What We Offer Section -->
             <div class="text-left q-mb-md">
-              <h4 class="text-weight-bold">What We Offer</h4>
+              <h4 class="text-caption text-weight-bold">What We Offer</h4>
               <ul class="q-pl-md">
                 <li class="text-weight-medium">
                   Comprehensive Artisan Listings
@@ -56,7 +56,9 @@
 
             <!-- Ways to Support Section -->
             <div class="text-left q-mb-md">
-              <h4 class="text-weight-bold">Ways You Can Support</h4>
+              <h4 class="text-caption text-weight-bold">
+                Ways You Can Support
+              </h4>
               <ol class="q-pl-md">
                 <li class="text-weight-medium">Hire an Artisan.</li>
                 <li class="text-weight-medium">
