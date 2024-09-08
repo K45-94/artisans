@@ -7,7 +7,6 @@ const state = reactive({
       to: "/artisans",
       icon: "eva-globe-outline",
     },
-
     {
       root: "/profile",
       to: "/profile",
@@ -82,9 +81,22 @@ const state = reactive({
         "Butula",
         "Funyula",
         "Matayos",
+        "Idokho",
         "Nambale",
         "Teso North",
         "Teso South",
+        "Bujwane",
+        "Bukoma",
+        "Bunyala",
+        "Nangina",
+        "Bukhungu",
+        "Debani",
+        "mbuvu",
+        "Bukhwamba",
+        "Kholokhongo",
+        "Makhoma",
+        "Namabusi",
+        "Nyapera",
       ],
     },
     {
@@ -322,7 +334,25 @@ const state = reactive({
     {
       id: 2,
       name: "Kwale",
-      constituencies: ["Kinango", "Lungalunga", "Matuga", "Msambweni"],
+      constituencies: [
+        "Kinango",
+        "Lunga-Lunga",
+        "Bwaga Cheti",
+        "Mahuruni",
+        "Matuga",
+        "Msambweni",
+        "Chingwede",
+        "Shimba Hills",
+        "Dundani",
+        "Dzirive",
+        "Samburu",
+        "Dololo",
+        "Diani",
+        "Funzi",
+        "Wasini",
+        "Vanga",
+        "Ufumbani",
+      ],
     },
     {
       id: 31,
@@ -585,6 +615,22 @@ const state = reactive({
         "Turkana East",
         "Turkana South",
         "Loima",
+        "Lodwar",
+        "Kaalig",
+        "Kainuk",
+        "Kakuma",
+        "Kalokol",
+        "Katilu",
+        "Kibish",
+        "Kerio",
+        "Lapur",
+        "Lokichar",
+        "Lokichogio",
+        "Lokitaung",
+        "Lokori",
+        "Kapedo",
+        "Oropol",
+        "Turkwel",
       ],
     },
     {
@@ -649,12 +695,43 @@ const state = reactive({
         "Voi",
         "Wundanyi",
         "Mwatate",
-        "Turkana South",
         "Loima",
+        "Bomeni ",
+        "Werugha ",
+        "Rong’e ",
+        "Mahoo ",
+        "Kasighau ",
+        "Sagala ",
+        "Marungu ",
+        "Kaloleni ",
+        "Ngolia ",
+        "Wusi/Kishamba ",
+        "Mbololo ",
+        "Chawia ",
+        "Bura ",
+        "Mwanda ",
+        "Mata ",
+        "Wundanyi",
+        "Wumingu ",
+        "Mboghoni ",
+        "Chala ",
+        "Mwatate ",
       ],
     },
   ],
   artisans: [
+    {
+      id: 1,
+      name: "Jeff Thuo",
+      craft: "Janitor",
+      location: "Westlands",
+      county: "Nairobi",
+      email: "",
+      phone: "0743238069",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
+      showContact: false,
+    },
     {
       id: 3,
       name: "Elijah Wangari",
@@ -663,6 +740,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0791777978",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -673,6 +752,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0724356177",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -683,6 +764,8 @@ const state = reactive({
       county: "Nyeri",
       email: "",
       phone: "0757460774",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -693,6 +776,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0703148750",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -703,6 +788,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0707080474",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -713,6 +800,8 @@ const state = reactive({
       county: "Machakos",
       email: "",
       phone: "0718214511",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -723,6 +812,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0791325823",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
     {
@@ -733,8 +824,61 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0794341720",
+      availabilityStatus: "Available", // or "Unavailable"
+      lastJobCompletionDate: "2024-09-01", // Date format
       showContact: false,
     },
+  ],
+  groups: [
+    {
+      id: 1,
+      name: "Cleaning Group",
+      county: "Nairobi",
+      location: "Westlands",
+      contactPhone: "0712345678",
+      members: [
+        { id: 1, fullName: "Edwin Mburu", role: "Supervisor" },
+        { id: 2, fullName: "Haggai Wainaina", role: "Cleaner" },
+        { id: 3, fullName: "Steven Chege", role: "Janitor" },
+        { id: 4, fullName: "Nancy Maingi", role: "Cleaner" },
+        { id: 5, fullName: "Nelson Mbogo", role: "Cleaner" },
+      ],
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-08-30",
+      showContact: false,
+    },
+    {
+      id: 2,
+      name: "Builders Cooperative",
+      location: "Nyali",
+      county: "Mombasa",
+      contactPhone: "0759716308",
+      members: [
+        { fullName: "Eric Mwangi", role: "Builder" },
+        { fullName: "David Kennedy", role: "Painter" },
+        { fullName: "Simon Kariuki", role: "Painter" },
+      ],
+      availabilityStatus: "Unavailable",
+      lastJobCompletionDate: "2024-09-05",
+      showContact: false,
+    },
+    {
+      id: 3,
+      name: "Cleaning Crew",
+      county: "Kiambu",
+      location: "Kahawa Sukari",
+      members: [
+        { fullName: "Mark Ouma", role: "Cleaner" },
+        { fullName: "Lucy Akinyi", role: "Janitor" },
+      ],
+      location: "Kisauni",
+      county: "Mombasa",
+      contactPhone: "0711234567",
+      availabilityStatus: "Unavailable",
+      lastJobCompletionDate: "2024-09-03",
+      showContact: false,
+    },
+    // other groups...
   ],
 });
 
