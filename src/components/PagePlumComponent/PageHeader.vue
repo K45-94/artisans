@@ -10,7 +10,7 @@
       <div
         class="page-header-title q-toolbar__title ellipsis q-pl-none q-ml-md text-weight-light text-center text-body1"
       >
-        <span class="q-pa-md text-brand text-gradient">
+        <span class="q-pa-md text-gradient">
           <slot name="title" />
         </span>
       </div>
@@ -22,6 +22,7 @@
 <script>
 export default {
   name: "PageHeader",
+
   data() {
     return {
       isScrolling: false,

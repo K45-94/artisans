@@ -21,7 +21,7 @@
         <q-select
           v-model="selectedConstituency"
           :options="constituencyOptions"
-          label="Select Constituency"
+          label="Select Constituency or Town"
           filled
           :disable="!selectedCounty"
         />
