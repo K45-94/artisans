@@ -8,13 +8,11 @@
     </page-header>
     <page-body>
       <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg">
-        <!-- Main Content Area -->
         <div class="row q-col-gutter-lg">
           <div class="col-12 col-sm-8">
-            <!-- Introduction Section -->
             <div class="text-left q-mb-md">
               <h3 class="text-caption text-weight-bold text-uppercase">
-                a Platform for Local Craftsmanship and Expertise
+                A Platform for Local Craftsmanship and Expertise
               </h3>
               <p class="text-weight-light">
                 Plum Artisans was born from the vision of connecting skilled
@@ -25,7 +23,6 @@
               </p>
             </div>
 
-            <!-- Mission Section -->
             <div class="text-left q-mb-md">
               <h4 class="text-caption text-weight-bold">Our Mission</h4>
               <p class="text-weight-light">
@@ -36,7 +33,6 @@
               </p>
             </div>
 
-            <!-- What We Offer Section -->
             <div class="text-left q-mb-md">
               <h4 class="text-caption text-weight-bold">What We Offer</h4>
               <ul class="q-pl-md">
@@ -54,7 +50,6 @@
               </p>
             </div>
 
-            <!-- Ways to Support Section -->
             <div class="text-left q-mb-md">
               <h4 class="text-caption text-weight-bold">
                 Ways You Can Support
@@ -65,6 +60,17 @@
                   Share their work on various platforms.
                 </li>
               </ol>
+            </div>
+
+            <!-- Definitions Section -->
+            <div class="text-left q-mb-md">
+              <h4 class="text-caption text-weight-bold">Definitions</h4>
+              <p class="text-weight-light">
+                <strong>Helper:</strong> An individual ready to assist with a
+                wide array of activities such as housing-movement services or
+                looking for an apartment assistance.
+              </p>
+              <!-- Add more definitions as needed -->
             </div>
           </div>
         </div>
