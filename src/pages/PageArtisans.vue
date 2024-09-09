@@ -158,8 +158,9 @@
                     v-for="(member, memberIndex) in group.members"
                     :key="memberIndex"
                   >
-                    <q-item-label>
-                      {{ member.fullName }} ({{ member.role }})
+                    <q-item-label class="flex flex-right">
+                      {{ member.role }}
+                      <!--{{ member.fullName }}-->
                     </q-item-label>
                   </div>
                 </div>
