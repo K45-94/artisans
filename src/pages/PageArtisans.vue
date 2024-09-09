@@ -159,9 +159,7 @@
                     :key="memberIndex"
                   >
                     <q-item-label>
-                      Member {{ memberIndex + 1 }}: {{ member.fullName }} ({{
-                        member.role
-                      }})
+                      {{ member.fullName }} ({{ member.role }})
                     </q-item-label>
                   </div>
                 </div>
