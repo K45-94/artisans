@@ -812,7 +812,7 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0791325823",
-      availabilityStatus: "Available",
+      availabilityStatus: "Unavailable",
       lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
