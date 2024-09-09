@@ -1,7 +1,7 @@
 <template>
   <page>
     <page-header>
-      <template #title>Find Artisans & Groups</template>
+      <template #title>Find Artisans </template>
     </page-header>
     <page-body>
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md text-brand">
