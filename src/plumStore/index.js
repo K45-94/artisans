@@ -728,8 +728,8 @@ const state = reactive({
       county: "Nairobi",
       email: "",
       phone: "0743238069",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -740,8 +740,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0791777978",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -752,8 +752,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0724356177",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -764,8 +764,8 @@ const state = reactive({
       county: "Nyeri",
       email: "",
       phone: "0757460774",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -776,8 +776,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0703148750",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -788,8 +788,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0707080474",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Unavailable",
+      lastJobCompletionDate: "2024-07-18",
       showContact: false,
     },
     {
@@ -800,8 +800,8 @@ const state = reactive({
       county: "Machakos",
       email: "",
       phone: "0718214511",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -812,8 +812,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0791325823",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
     {
@@ -824,8 +824,8 @@ const state = reactive({
       county: "Kiambu",
       email: "",
       phone: "0794341720",
-      availabilityStatus: "Available", // or "Unavailable"
-      lastJobCompletionDate: "2024-09-01", // Date format
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
   ],
@@ -878,7 +878,6 @@ const state = reactive({
       lastJobCompletionDate: "2024-09-03",
       showContact: false,
     },
-    // other groups...
   ],
 });
 
