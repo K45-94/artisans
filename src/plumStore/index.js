@@ -835,7 +835,7 @@ const state = reactive({
       location: "Othaya",
       county: "Nyeri",
       email: "",
-      phone: "0757460774",
+      phone: "0746204887",
       availabilityStatus: "Available",
       lastJobCompletionDate: "2024-09-10",
       showContact: false,
