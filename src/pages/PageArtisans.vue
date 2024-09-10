@@ -193,7 +193,7 @@ const currentTab = ref("artisans");
 const craftOptions = [
   { label: "Plumber", value: "Plumber" },
   { label: "Builder", value: "Builder" },
-  { label: "Shop Operator", value: "Shop Operator" },
+  { label: "Shop Attendant", value: "Shop Attendant" },
   { label: "Electrician", value: "Electrician" },
   { label: "Mechanic", value: "Mechanic" },
   { label: "Chef", value: "Chef" },
