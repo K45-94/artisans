@@ -32,9 +32,8 @@
         <!-- Tabs for switching between Artisans and Groups -->
         <q-tabs
           v-model="currentTab"
-          class="q-my-md text-blue"
+          class="q-my-md"
           dense
-          active-color="positive"
           indicator-color="secondary"
           narrow-indicator
         >
@@ -137,7 +136,10 @@
                   flat
                 />
                 <div v-if="group.showContact">
-                  <q-item-label>Phone: {{ group.contactPhone }}</q-item-label>
+                  <q-item-label
+                    >Phone:
+                    <!--{{ group.contactPhone }}-->
+                  </q-item-label>
                 </div>
 
                 <!-- Render group members -->
@@ -175,7 +177,6 @@
     </page-body>
   </page>
 </template>
-
 <script setup>
 import { ref, computed, watch } from "vue";
 import store from "src/plumStore";
@@ -192,6 +193,7 @@ const currentTab = ref("artisans");
 const craftOptions = [
   { label: "Plumber", value: "Plumber" },
   { label: "Builder", value: "Builder" },
+  { label: "Shop Operator", value: "Shop Operator" },
   { label: "Electrician", value: "Electrician" },
   { label: "Mechanic", value: "Mechanic" },
   { label: "Chef", value: "Chef" },
@@ -199,6 +201,8 @@ const craftOptions = [
   { label: "Janitor", value: "Janitor" },
   { label: "Helper", value: "Helper" },
   { label: "Painter", value: "Painter" },
+  { label: "Gym Staff", value: "Gym Staff" },
+  { label: "Trainer", value: "Trainer" },
 ];
 
 const countyOptions = computed(() =>

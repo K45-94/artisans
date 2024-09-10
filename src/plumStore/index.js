@@ -722,7 +722,7 @@ const state = reactive({
   artisans: [
     {
       id: 1,
-      name: "Jeff Thuo",
+      name: "Jeff Huo",
       craft: "Janitor",
       location: "Westlands",
       county: "Nairobi",
@@ -734,19 +734,19 @@ const state = reactive({
     },
     {
       id: 3,
-      name: "Elijah Wangari",
+      name: "Elijah Ngari",
       craft: "Electrician",
       location: "Ruiru",
       county: "Kiambu",
       email: "",
       phone: "0791777978",
       availabilityStatus: "Available",
-      lastJobCompletionDate: "2024-09-01",
+      lastJobCompletionDate: "2024-06-01",
       showContact: false,
     },
     {
       id: 4,
-      name: "Joachim Kibathi",
+      name: "Kim Kibathi",
       craft: "Plumber",
       location: "Juja",
       county: "Kiambu",
