@@ -828,6 +828,18 @@ const state = reactive({
       lastJobCompletionDate: "2024-09-01",
       showContact: false,
     },
+    {
+      id: 5,
+      name: "Ezon Gichuru",
+      craft: "Farm Work",
+      location: "Othaya",
+      county: "Nyeri",
+      email: "",
+      phone: "0757460774",
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-10",
+      showContact: false,
+    },
   ],
   groups: [
     {
