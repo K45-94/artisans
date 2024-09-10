@@ -191,6 +191,8 @@ const selectedConstituency = ref("");
 const currentTab = ref("artisans");
 
 const craftOptions = [
+  { label: "Farm Work", value: "Farm Work" },
+  { label: "Crafts & Handmade", value: "Crafts_Handmade" },
   { label: "Plumber", value: "Plumber" },
   { label: "Builder", value: "Builder" },
   { label: "Shop Attendant", value: "Shop Attendant" },
