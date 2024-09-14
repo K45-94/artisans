@@ -88,7 +88,7 @@
                 <div v-if="artisan.showContact">
                   <q-item-label
                     >Phone:
-                    <!--{{ artisan.phone }}-->
+                    {{ artisan.phone }}
                   </q-item-label>
                 </div>
               </q-card-section>
