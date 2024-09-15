@@ -33,13 +33,10 @@
     "eslint-plugin-vue": "^9.27.0",
     "eslint-webpack-plugin": "^4.2.0",
     "git-scripts": "^0.6.4",
-    "prettier": "^3.3.3",
-    "surge": "^0.24.6"
+    "prettier": "^3.3.3"
   },
   "git": {
-    "scripts": {
-      "pre-push": "surge --project ./ --domain plum-ui.surge.sh"
-    }
+    "scripts": {}
   },
   "browserslist": [
     "last 10 Chrome versions",
