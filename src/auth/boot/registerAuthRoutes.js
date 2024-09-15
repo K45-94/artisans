@@ -30,17 +30,17 @@ export default boot(({ router }) => {
     component: () => import("src/auth/pages/PasswordResetViaEmailPage.vue"),
   });
 
-  // Add the main layout route with children
+  // Main layout route with children
   router.addRoute({
     path: "/",
     component: () => import("src/layouts/PlumLayout.vue"),
     children: [
       {
         path: "/artisans",
+        name: "artisans",
         meta: { authOnly: true },
         component: () => import("src/pages/PageArtisans.vue"),
       },
-
       {
         path: "/profile",
         meta: { authOnly: true },
