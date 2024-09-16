@@ -978,7 +978,7 @@ const state = reactive({
     },
     {
       id: 12,
-      name: "KArol Kosgei",
+      name: "Karol Kosgei",
       craft: "Chef",
       location: "Shimba Hills",
       county: "Kwale",
