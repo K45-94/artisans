@@ -15,6 +15,9 @@
         </span>
       </div>
       <slot name="button-right" />
+      <div class="logout-button">
+        <slot name="logout-button"></slot>
+      </div>
     </div>
   </header>
 </template>

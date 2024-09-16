@@ -1,7 +1,10 @@
 <template>
   <page>
     <page-header>
-      <template #title> PROFILE </template>
+      <template #title>PROFILE</template>
+      <template v-if="isAuthenticated" #logout-button>
+        <Logout-button label="logout" flat color="secondary" />
+      </template>
     </page-header>
     <page-body>
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
@@ -41,14 +44,21 @@
 import { defineComponent } from "vue";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
+import LogoutButton from "src/auth/components/LogoutButton.vue";
 import PageBody from "src/components/PagePlumComponent/PageBody.vue";
+import { useAuthState } from "@vueauth/core";
 
 export default defineComponent({
   components: {
     Page,
     PageHeader,
     PageBody,
+    LogoutButton,
   },
   name: "PageProfile",
+  setup() {
+    const { isAuthenticated } = useAuthState();
+    return { isAuthenticated };
+  },
 });
 </script>
