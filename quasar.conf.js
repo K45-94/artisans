@@ -8,6 +8,7 @@
 
 /* eslint-env node */
 const ESLintPlugin = require("eslint-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 const { configure } = require("quasar/wrappers");
 
 module.exports = configure(function (ctx) {
@@ -63,10 +64,12 @@ module.exports = configure(function (ctx) {
 
       // https://quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
+
       chainWebpack(chain) {
         chain
           .plugin("eslint-webpack-plugin")
           .use(ESLintPlugin, [{ extensions: ["js", "vue"] }]);
+        chain.plugin("dotenv").use(Dotenv, [{ path: "./.env" }]);
       },
 
       extendWebpack(cfg) {
