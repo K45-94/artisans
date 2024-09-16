@@ -30,7 +30,6 @@ import AuthLoginCard from "src/auth/components/LoginCard.vue";
 </template>
 <style lang="scss">
 .log {
-  background: linear-gradient(120deg, #000c04 15%, rgb(255, 255, 255) 85%);
   min-height: 100vh;
 }
 </style>

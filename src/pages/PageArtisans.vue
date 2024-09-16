@@ -1,7 +1,7 @@
 <template>
   <page>
     <page-header>
-      <template #title>Find Artisans </template>
+      <template #title>Find Artisans</template>
     </page-header>
     <page-body>
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md text-brand">
@@ -51,9 +51,9 @@
               <q-card-section class="col-8">
                 <q-item-label>{{ artisan.name }}</q-item-label>
                 <q-item-label>{{ artisan.craft }}</q-item-label>
-                <q-item-label
-                  >{{ artisan.county }} - {{ artisan.location }}</q-item-label
-                >
+                <q-item-label>
+                  {{ artisan.county }} - {{ artisan.location }}
+                </q-item-label>
                 <!-- Add availability status and last job completion date -->
                 <q-item-label>
                   Status:
@@ -67,30 +67,37 @@
                     {{ artisan.availabilityStatus }}
                   </span>
                 </q-item-label>
-                <q-item-label
-                  >Last Job: {{ artisan.lastJobCompletionDate }}</q-item-label
-                >
+                <q-item-label>
+                  Last Job: {{ artisan.lastJobCompletionDate }}
+                </q-item-label>
 
+                <!-- Artisan contact details -->
                 <q-btn
-                  v-if="artisan.showContact"
+                  v-if="artisan.showContact && isAuthenticated"
                   label="Hide Contact"
                   @click="revealContact(artisan)"
                   color="warning"
                   flat
                 />
                 <q-btn
-                  v-else
+                  v-else-if="isAuthenticated"
                   label="Show Contact"
                   @click="revealContact(artisan)"
                   color="info"
                   flat
                 />
-                <div v-if="artisan.showContact">
-                  <q-item-label
-                    >Phone:
-                    {{ artisan.phone }}
-                  </q-item-label>
+                <div v-if="artisan.showContact && isAuthenticated">
+                  <q-item-label>Phone: {{ artisan.phone }}</q-item-label>
                 </div>
+
+                <!-- Show login button if user is not authenticated -->
+                <q-btn
+                  v-if="!isAuthenticated && !artisan.showContact"
+                  label="Login"
+                  to="/login"
+                  color="primary"
+                  flat
+                />
               </q-card-section>
             </q-card>
           </div>
@@ -117,29 +124,27 @@
                     {{ group.availabilityStatus }}
                   </span>
                 </q-item-label>
-                <q-item-label
-                  >Last Job: {{ group.lastJobCompletionDate }}</q-item-label
-                >
+                <q-item-label>
+                  Last Job: {{ group.lastJobCompletionDate }}
+                </q-item-label>
 
+                <!-- Group contact details -->
                 <q-btn
-                  v-if="group.showContact"
+                  v-if="group.showContact && isAuthenticated"
                   label="Hide Contact"
                   @click="revealGroupContact(group)"
                   color="primary"
                   flat
                 />
                 <q-btn
-                  v-else
+                  v-else-if="isAuthenticated"
                   label="Show Contact"
                   @click="revealGroupContact(group)"
                   color="secondary"
                   flat
                 />
-                <div v-if="group.showContact">
-                  <q-item-label
-                    >Phone:
-                    <!--{{ group.contactPhone }}-->
-                  </q-item-label>
+                <div v-if="group.showContact && isAuthenticated">
+                  <q-item-label>Phone: {{ group.contactPhone }}</q-item-label>
                 </div>
 
                 <!-- Render group members -->
@@ -177,13 +182,17 @@
     </page-body>
   </page>
 </template>
+
 <script setup>
 import { ref, computed, watch } from "vue";
 import store from "src/plumStore";
+import { useAuthState } from "@vueauth/core";
 
 defineOptions({
   name: "PageArtisans",
 });
+
+const { isAuthenticated } = useAuthState();
 
 const selectedCraft = ref("");
 const selectedCounty = ref("");

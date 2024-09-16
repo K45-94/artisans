@@ -25,7 +25,7 @@
 
 .q-tab-panel,
 .q-form {
-  background-color: var(--primary-bg);
+  background-color: var(--secondary-bg);
 }
 .q-input {
   background-color: var(--secondary-bg);
@@ -36,8 +36,9 @@
 .q-portal {
   background-color: var(--primary-bg);
 }
-q-field__label {
-  background-color: var(--primary-bg);
+
+.q-field__control {
+  -webkit-text-fill-color: var(--primary-bg);
 }
 .q-card {
   background-color: var(--primary-bg);

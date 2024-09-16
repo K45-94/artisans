@@ -15,14 +15,13 @@ import AuthRegisterCard from "src/auth/components/RegisterCard.vue";
       no-caps
       label="login"
       flat
-      class="full-width"
+      class="full-width text-white"
       :to="{ name: 'auth.login' }"
     />
   </div>
 </template>
 <style lang="scss">
 .reg {
-  background: linear-gradient(120deg, #000c04 15%, rgb(255, 255, 255) 85%);
   min-height: 100vh;
 }
 </style>
