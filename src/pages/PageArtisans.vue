@@ -93,9 +93,9 @@
                 <!-- Show login button if user is not authenticated -->
                 <q-btn
                   v-if="!isAuthenticated && !artisan.showContact"
-                  label="Login"
+                  label="Show Contact"
                   to="/login"
-                  color="primary"
+                  color="secondary"
                   flat
                 />
               </q-card-section>
