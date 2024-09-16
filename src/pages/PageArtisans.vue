@@ -83,7 +83,7 @@
                   v-else-if="isAuthenticated"
                   label="Show Contact"
                   @click="revealContact(artisan)"
-                  color="info"
+                  color="secondary"
                   flat
                 />
                 <div v-if="artisan.showContact && isAuthenticated">
