@@ -6,13 +6,13 @@
 .bright-background {
   background-color: #ffffff !important;
   --primary-bg: #ffffff;
-  --secondary-bg: #f0f0f0;
+  --secondary-bg: #180b0b;
 }
 
 .dim-background {
   background-color: #bebebe !important;
   --primary-bg: #bebebe;
-  --secondary-bg: #becebe;
+  --secondary-bg: #0b160b;
 }
 
 .dark-background {
@@ -25,20 +25,20 @@
 
 .q-tab-panel,
 .q-form {
-  background-color: var(--secondary-bg);
+  background-color: var(--primary-bg);
 }
 .q-input {
-  background-color: var(--secondary-bg);
+  background-color: var(--primary-bg);
 }
 .q-field {
-  background-color: var(--secondary-bg);
+  background-color: var(--primary-bg);
 }
 .q-portal {
   background-color: var(--primary-bg);
 }
 
 .q-field__control {
-  -webkit-text-fill-color: var(--primary-bg);
+  -webkit-text-fill-color: var(--secondary-bg);
 }
 .q-card {
   background-color: var(--primary-bg);
@@ -87,5 +87,5 @@
   background-color: #f9f9f9;
 }
 .q-input {
-  text-decoration-color: aquamarine;
+  text-decoration-color: var(--secondary-bg);
 }

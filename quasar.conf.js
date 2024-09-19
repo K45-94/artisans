@@ -157,9 +157,14 @@ module.exports = configure(function (ctx) {
         description: `Building Plum with vue 3`,
         display: "standalone",
         orientation: "portrait",
-        background_color: "#CCC5B9",
+        background_color: "#000000",
         theme_color: "#027be3",
         icons: [
+          {
+            src: "icons/icon.svg",
+            sizes: "any",
+            type: "image/svg+xml",
+          },
           {
             src: "icons/icon-128x128.png",
             sizes: "128x128",

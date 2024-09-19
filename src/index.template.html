@@ -12,6 +12,10 @@
       content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>"
     />
 
+    <!-- SVG favicon -->
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+
+    <!-- PNG fallback icons -->
     <link
       rel="icon"
       type="image/png"
@@ -36,7 +40,10 @@
       sizes="16x16"
       href="icons/favicon-16x16.png"
     />
-    <link rel="icon" type="image/ico" href="favicon.ico" />
+
+    <!-- ICO fallback -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-0NH9PMWTBK"

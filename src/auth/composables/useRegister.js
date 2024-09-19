@@ -1,12 +1,9 @@
-import { useIdentityPasswordRegister, getConfig } from '@vueauth/core'
-import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useIdentityPasswordRegister, useAuthState } from "@vueauth/core";
 
 export default () => {
-  const router = useRouter()
-  const { emailConfirm } = getConfig('identityPassword:register')
-  const registered = ref()
-
+  const router = useRouter();
   const {
     form,
     loading,
@@ -14,17 +11,29 @@ export default () => {
     hasErrors,
     validationErrors,
     hasValidationErrors,
-    register
-  } = useIdentityPasswordRegister()
+    register,
+    isReauthenticating,
+    resetForm,
+    resetErrors,
+  } = useIdentityPasswordRegister();
+  const { user } = useAuthState();
 
-  async function onRegisterClicked () {
-    await register()
-    if (!hasErrors.value) {
-      if (!emailConfirm) {
-        router.push({ name: 'dashboard' })
+  const registered = ref(false);
+
+  async function onRegisterClicked() {
+    resetErrors();
+    try {
+      await register();
+      if (!hasErrors.value) {
+        registered.value = true;
       }
-      registered.value = true
+    } catch (error) {
+      console.error("Registration error:", error);
     }
+  }
+
+  function onRegistrationComplete() {
+    router.push({ name: "auth.login" });
   }
 
   return {
@@ -36,8 +45,9 @@ export default () => {
     validationErrors,
     hasValidationErrors,
     register,
-    router,
-    emailConfirm,
-    registered
-  }
-}
+    resetForm,
+    isReauthenticating,
+    registered,
+    onRegistrationComplete,
+  };
+};

@@ -3,21 +3,21 @@ import AuthRegisterCard from "src/auth/components/RegisterCard.vue";
 </script>
 
 <template>
-  <div class="flex flex-center reg" padding>
+  <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg reg">
     <div class="text-center">
       <h5 class="q-mb-md text-secondary">Register</h5>
       <AuthRegisterCard />
     </div>
-  </div>
-  <div class="absolute-top-right q-pa-md">
-    <div class="text-gradient">Already have an account?</div>
-    <q-btn
-      no-caps
-      label="login"
-      flat
-      class="full-width text-white"
-      :to="{ name: 'auth.login' }"
-    />
+    <div class="flex flex-center q-pa-md q-mb-lg">
+      <div class="text-gradient">Already have an account?</div>
+      <q-btn
+        no-caps
+        label="login"
+        flat
+        class="full-width text-secondary"
+        :to="{ name: 'auth.login' }"
+      />
+    </div>
   </div>
 </template>
 <style lang="scss">

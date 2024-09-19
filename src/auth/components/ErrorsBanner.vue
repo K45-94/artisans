@@ -1,34 +1,19 @@
-<script setup>
-import { toRef } from 'vue'
-
-const props = defineProps({
-  errors: {
-    required: true,
-    type: Array
-  },
-  class: {
-    required: false,
-    type: [Object, Array, String],
-    default: 'bg-negative q-mt-sm text-white'
-  },
-  rounded: {
-    required: false,
-    type: Boolean,
-    default: true
-  }
-})
-
-const classProps = toRef(props, 'class')
-</script>
-
 <template>
-  <q-banner
-    v-for="error in errors"
-    :key="error.message"
-    :rounded="rounded"
-    :class="classProps"
-    v-bind="$attrs"
-  >
-    {{ error.message }}
-  </q-banner>
+  <div>
+    <ul v-if="errors && errors.length">
+      <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+    </ul>
+  </div>
 </template>
+
+<script>
+export default {
+  props: {
+    errors: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
+  },
+};
+</script>
