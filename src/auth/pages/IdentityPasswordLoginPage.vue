@@ -3,7 +3,7 @@ import AuthLoginCard from "src/auth/components/LoginCard.vue";
 </script>
 
 <template>
-  <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg log">
+  <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg log constrain small-screen-only">
     <div class="text-center">
       <div class="q-mb-md text-secondary text-h5">Sign In</div>
       <AuthLoginCard />

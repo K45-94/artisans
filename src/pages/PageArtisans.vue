@@ -199,22 +199,7 @@ const selectedCounty = ref("");
 const selectedConstituency = ref("");
 const currentTab = ref("artisans");
 
-const craftOptions = [
-  { label: "Farm Work", value: "Farm Work" },
-  { label: "Crafts & Handmade", value: "Crafts_Handmade" },
-  { label: "Plumber", value: "Plumber" },
-  { label: "Builder", value: "Builder" },
-  { label: "Shop Attendant", value: "Shop Attendant" },
-  { label: "Electrician", value: "Electrician" },
-  { label: "Mechanic", value: "Mechanic" },
-  { label: "Chef", value: "Chef" },
-  { label: "Cleaner", value: "Cleaner" },
-  { label: "Janitor", value: "Janitor" },
-  { label: "Helper", value: "Helper" },
-  { label: "Painter", value: "Painter" },
-  { label: "Gym Staff", value: "Gym Staff" },
-  { label: "Trainer", value: "Trainer" },
-];
+const craftOptions = computed(() => store.state.craftOptions);
 
 const countyOptions = computed(() =>
   store.state.locations.map((location) => ({

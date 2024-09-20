@@ -21,6 +21,22 @@ const state = reactive({
     "dim-background": ["black", "green"],
     "dark-background": ["white", "violet", "green"],
   },
+  craftOptions: [
+    { value: "Plumber", label: "Plumber" },
+    { value: "Electrician", label: "Electrician" },
+    { value: "Chef", label: "Chef" },
+    { value: "Janitor", label: "Janitor" },
+    { label: "Farm Work", value: "Farm Work" },
+    { label: "Crafts & Handmade", value: "Crafts_Handmade" },
+    { label: "Builder", value: "Builder" },
+    { label: "Shop Attendant", value: "Shop Attendant" },
+    { label: "Mechanic", value: "Mechanic" },
+    { label: "Cleaner", value: "Cleaner" },
+    { label: "Helper", value: "Helper" },
+    { label: "Painter", value: "Painter" },
+    { label: "Gym Staff", value: "Gym Staff" },
+    { label: "Trainer", value: "Trainer" },
+  ],
   locations: [
     {
       id: 1,
@@ -925,7 +941,7 @@ const state = reactive({
       email: "",
       phone: "0703148750",
       availabilityStatus: "Uavailable",
-      lastJobCompletionDate: "2024-09-01",
+      lastJobCompletionDate: "2024-09-12",
       showContact: false,
     },
     {
@@ -949,7 +965,7 @@ const state = reactive({
       email: "",
       phone: "0718214511",
       availabilityStatus: "Available",
-      lastJobCompletionDate: "2024-09-01",
+      lastJobCompletionDate: "2024-09-07",
       showContact: false,
     },
     {
@@ -961,7 +977,7 @@ const state = reactive({
       email: "",
       phone: "0791325823",
       availabilityStatus: "Unavailable",
-      lastJobCompletionDate: "2024-09-01",
+      lastJobCompletionDate: "2024-09-20",
       showContact: false,
     },
     {
@@ -973,7 +989,7 @@ const state = reactive({
       email: "",
       phone: "0794341720",
       availabilityStatus: "Available",
-      lastJobCompletionDate: "2024-08-01",
+      lastJobCompletionDate: "2024-08-19",
       showContact: false,
     },
     {
@@ -985,7 +1001,7 @@ const state = reactive({
       email: "",
       phone: "0746204887",
       availabilityStatus: "Available",
-      lastJobCompletionDate: "2024-09-10",
+      lastJobCompletionDate: "2024-09-18",
       showContact: false,
     },
     {
@@ -998,6 +1014,18 @@ const state = reactive({
       phone: "0746204887",
       availabilityStatus: "Available",
       lastJobCompletionDate: "2024-09-10",
+      showContact: false,
+    },
+    {
+      id: 13,
+      name: "Samuel Kaniu",
+      craft: "Shop Attendant",
+      location: "Kasarani",
+      county: "Nairobi",
+      email: "",
+      phone: "0791178691",
+      availabilityStatus: "Available",
+      lastJobCompletionDate: "2024-09-15",
       showContact: false,
     },
   ],
@@ -1051,10 +1079,26 @@ const state = reactive({
       showContact: false,
     },
   ],
+  user: {
+    displayName: "",
+    username: "",
+    email: "",
+    jobCategory: "",
+    availability: "",
+  },
 });
 
 const store = {
   state,
+  setUserDetails(userDetails) {
+    state.user.displayName = userDetails.displayName;
+    state.user.username = userDetails.username;
+    state.user.email = userDetails.email;
+    state.user.jobCategory = userDetails.jobCategory;
+    state.user.availability = userDetails.availability;
+  },
+  setLocation(location) {
+    state.locations.push(location);
+  },
 };
-
 export default store;

@@ -3,7 +3,7 @@ import AuthRegisterCard from "src/auth/components/RegisterCard.vue";
 </script>
 
 <template>
-  <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg reg">
+  <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg reg constrain small-screen-only">
     <div class="text-center">
       <h5 class="q-mb-md text-secondary">Register</h5>
       <AuthRegisterCard />

@@ -3,7 +3,9 @@ import PasswordResetRequestCard from "src/auth/components/PasswordResetRequestCa
 </script>
 
 <template>
-  <div class="flex flex-center password-reset" padding>
+  <div
+    class="q-pt-lg q-pb-md q-pl-lg q-pr-lg password-reset constrain small-screen-only"
+  >
     <div class="text-center">
       <div class="q-mb-md text-gradient">Password Reset</div>
       <PasswordResetRequestCard />
