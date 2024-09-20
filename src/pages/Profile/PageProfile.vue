@@ -10,7 +10,7 @@
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
         <div class="row q-col-gutter-lg">
           <div class="col-12 col-sm-8">
-            <q-card class="q-mb-md" flat>
+            <q-card class="q-mb-md" flat v-if="isAuthenticated">
               <q-card-section>
                 <div class="text-h6">Profile Details</div>
               </q-card-section>
