@@ -113,9 +113,3 @@ export default defineComponent({
   name: "PageProfile",
 });
 </script>
-
-<style scoped>
-.q-card {
-  width: 100%;
-}
-</style>
