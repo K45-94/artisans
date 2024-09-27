@@ -52,8 +52,9 @@ async function onRequestResetClicked() {
       v-if="!hasRequestedReset"
       :loading="loading"
       class="full-width"
-      color="primary"
+      color="secondary"
       label="Email Reset Instructions"
+      outline=""
       unelevated
       @click="onRequestResetClicked"
     />
@@ -61,6 +62,6 @@ async function onRequestResetClicked() {
 </template>
 <style lang="scss">
 .password-reset-request-card {
-  background: linear-gradient(90deg, #00d546 15%, #00d546 85%);
+  background: var(--primary-bg);
 }
 </style>

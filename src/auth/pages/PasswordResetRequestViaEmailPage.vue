@@ -11,9 +11,9 @@ import PasswordResetRequestCard from "src/auth/components/PasswordResetRequestCa
       <PasswordResetRequestCard />
       <q-btn
         class="full-width q-mt-md"
-        color="secondary"
+        color="info"
         label="back"
-        flat
+        outline
         :to="{ name: 'auth.login' }"
       />
     </div>

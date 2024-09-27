@@ -1,6 +1,8 @@
+// src/boot/registerAuthRoutes.js
 import { boot } from "quasar/wrappers";
 
 export default boot(({ router }) => {
+  console.log("Registering auth routes");
   router.addRoute({
     path: "/register",
     name: "auth.register",

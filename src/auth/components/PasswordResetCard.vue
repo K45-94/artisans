@@ -57,6 +57,6 @@ async function onResetClicked() {
 </template>
 <style lang="scss">
 .password-reset-card {
-  background: linear-gradient(90deg, #00d546 15%, #00d546 85%);
+  background: var(--primary-bg);
 }
 </style>

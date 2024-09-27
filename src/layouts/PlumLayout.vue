@@ -5,8 +5,8 @@
     class="shadow-2 rounded-borders"
   >
     <q-page-container>
-      <q-footer class="small-screen-only" bordered>
-        <q-tabs class="row text-white" active-color="secondary">
+      <q-footer class="small-screen-only">
+        <q-tabs class="row text-primary" active-color="secondary">
           <q-route-tab
             v-for="navItem in store.state.navItems"
             :key="navItem.root"

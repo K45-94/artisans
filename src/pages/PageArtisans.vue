@@ -76,7 +76,7 @@
                   v-if="artisan.showContact && isAuthenticated"
                   label="Hide Contact"
                   @click="revealContact(artisan)"
-                  color="warning"
+                  color="info"
                   flat
                 />
                 <q-btn
@@ -133,7 +133,7 @@
                   v-if="group.showContact && isAuthenticated"
                   label="Hide Contact"
                   @click="revealGroupContact(group)"
-                  color="primary"
+                  color="info"
                   flat
                 />
                 <q-btn

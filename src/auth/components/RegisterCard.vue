@@ -40,10 +40,11 @@ const {
     <q-card-section>
       <q-btn
         :loading="loading"
-        class="full-width"
+        class="full-width shadow-20"
         color="primary"
         label="Register"
         unelevated
+        outline=""
         type="submit"
         @click="onRegisterClicked"
       />

@@ -34,9 +34,10 @@ const {
     <!-- Login Button -->
     <q-btn
       :loading="loading"
-      class="full-width"
-      color="primary"
+      class="full-width shadow-20 q-ma-sm q-pb-sm"
+      color="secondary"
       label="login"
+      outline=""
       unelevated
       @click="onLoginClicked"
     />
