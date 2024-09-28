@@ -1,33 +1,33 @@
 <script setup>
-import { QInput, QForm } from 'quasar'
+import { QInput, QForm } from "quasar";
 
 defineProps({
   email: {
     required: true,
-    type: String
+    type: String,
   },
   password: {
     required: true,
-    type: String
+    type: String,
   },
   passwordConfirmation: {
     required: true,
-    type: String
+    type: String,
   },
   validationErrors: {
     required: false,
     type: Object,
-    default () {
-      return {}
-    }
-  }
-})
+    default() {
+      return {};
+    },
+  },
+});
 
 const emit = defineEmits([
-  'update:email',
-  'update:password',
-  'update:passwordConfirmation'
-])
+  "update:email",
+  "update:password",
+  "update:passwordConfirmation",
+]);
 </script>
 
 <template>
@@ -41,7 +41,7 @@ const emit = defineEmits([
       :error-message="validationErrors?.['email']?.[0]"
       class="q-mb-md"
       hide-bottom-space
-      @update:model-value="value => emit('update:email', value)"
+      @update:model-value="(value) => emit('update:email', value)"
     />
     <q-input
       filled
@@ -52,7 +52,7 @@ const emit = defineEmits([
       class="q-mb-xs"
       type="password"
       hide-bottom-space
-      @update:model-value="value => emit('update:password', value)"
+      @update:model-value="(value) => emit('update:password', value)"
     />
     <q-input
       filled
@@ -63,7 +63,9 @@ const emit = defineEmits([
       class="q-mb-md"
       type="password"
       hide-bottom-space
-      @update:model-value="value => emit('update:passwordConfirmation', value)"
+      @update:model-value="
+        (value) => emit('update:passwordConfirmation', value)
+      "
     />
     <slot name="bottom" />
   </q-form>

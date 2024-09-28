@@ -893,7 +893,7 @@ const state = reactive({
       email: "",
       phone: "0707629420",
       availabilityStatus: "Available",
-      lastJobCompletionDate: "2024-09-01",
+      lastJobCompletionDate: "2024-09-24",
       showContact: false,
     },
     {
@@ -1079,13 +1079,57 @@ const state = reactive({
       showContact: false,
     },
   ],
-  user: {
-    displayName: "",
-    username: "",
-    email: "",
-    jobCategory: "",
-    availability: "",
-  },
+  craftOptions: [
+    { value: "Plumber", label: "Plumber" },
+    { value: "Electrician", label: "Electrician" },
+    { value: "Chef", label: "Chef" },
+    { value: "Janitor", label: "Janitor" },
+    { label: "Farm Work", value: "Farm Work" },
+    { label: "Crafts & Handmade", value: "Crafts_Handmade" },
+    { label: "Builder", value: "Builder" },
+    { label: "Shop Attendant", value: "Shop Attendant" },
+    { label: "Mechanic", value: "Mechanic" },
+    { label: "Cleaner", value: "Cleaner" },
+    { label: "Helper", value: "Helper" },
+    { label: "Painter", value: "Painter" },
+    { label: "Gym Staff", value: "Gym Staff" },
+    { label: "Trainer", value: "Trainer" },
+  ],
+  shops: [
+    {
+      id: 1,
+      name: "Tool Shop",
+      location: "Westlands",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Hammer", price: 500, available: true },
+        { id: 2, name: "Wrench", price: 300, available: false },
+      ],
+      jobs: [
+        { id: 1, title: "Sales Assistant", shift: "Morning", available: true },
+        { id: 2, title: "Cashier", shift: "Evening", available: false },
+      ],
+    },
+    {
+      id: 2,
+      name: "Kibanda Shop",
+      location: "Ruiru",
+      county: "Kiambu",
+      products: [
+        { id: 1, name: "Ugali", price: 20, available: true },
+        { id: 2, name: "Fish", price: 70, available: false },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Afternoon",
+          available: true,
+        },
+        { id: 2, title: "Cashier", shift: "Evening", available: false },
+      ],
+    },
+  ],
 });
 
 const store = {

@@ -34,7 +34,7 @@ const {
     <!-- Login Button -->
     <q-btn
       :loading="loading"
-      class="full-width shadow-20 q-ma-sm q-pb-sm"
+      class="full-width"
       color="secondary"
       label="login"
       outline=""

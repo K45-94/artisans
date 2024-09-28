@@ -1,38 +1,17 @@
-import { ref, computed, onMounted } from "vue";
-import { useAuthState } from "@vueauth/core";
-import store from "src/plumStore";
-import { supabase } from "src/supabaseClient";
+// src/auth/composables/usePlumAuthState.js
+import { ref, computed } from "vue";
+import { useAuthState as vueAuthState } from "@vueauth/core";
 
 export function usePlumAuthState() {
-  const { user, isAuthenticated } = useAuthState();
+  const { isAuthenticated, user } = vueAuthState();
 
-  const fetchUserProfile = async (userId) => {
-    try {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", userId)
-        .single();
-
-      if (error) {
-        throw error;
-      }
-
-      store.setUserDetails(data);
-    } catch (error) {
-      console.error("Error fetching user profile:", error);
-    }
-  };
-
-  onMounted(() => {
-    if (isAuthenticated.value && user.value) {
-      fetchUserProfile(user.value.id);
-    }
+  const isShopOwner = computed(() => {
+    return isAuthenticated.value && user.value?.role === "shop_owner";
   });
 
-  return {
-    user,
-    isAuthenticated,
-    fetchUserProfile,
-  };
+  console.log("isAuthenticated:", isAuthenticated.value);
+  console.log("user:", user.value);
+  console.log("isShopOwner:", isShopOwner.value);
+
+  return { isAuthenticated, isShopOwner };
 }

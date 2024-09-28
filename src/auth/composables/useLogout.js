@@ -1,30 +1,17 @@
-import { ref } from "vue";
+import { useIdentityPasswordLogout } from "@vueauth/core";
 import { useRouter } from "vue-router";
-import { useAuthState } from "@vueauth/core";
-import store from "src/plumStore";
-import { supabase } from "src/supabaseClient";
 
-export default function useLogout() {
-  const loading = ref(false);
-  const { logout } = useAuthState();
+export default () => {
   const router = useRouter();
+  const { logout, loading } = useIdentityPasswordLogout();
 
-  const onLogoutClicked = async () => {
-    loading.value = true;
-    try {
-      await supabase.auth.signOut();
-      store.clearUserDetails();
-      await logout();
-      router.push("/artisans");
-    } catch (error) {
-      console.error("Logout error:", error);
-    } finally {
-      loading.value = false;
-    }
-  };
+  async function onLogoutClicked() {
+    await logout();
+    router.push("/artisans");
+  }
 
   return {
     loading,
     onLogoutClicked,
   };
-}
+};

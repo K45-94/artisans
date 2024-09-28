@@ -4,7 +4,7 @@
       <template #title>Find Artisans</template>
     </page-header>
     <page-body>
-      <div class="q-pt-lg q-pb-md q-pl-md q-pr-md text-brand">
+      <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
         <!-- Dropdowns for filters -->
         <q-select
           v-model="selectedCraft"
@@ -39,6 +39,7 @@
         >
           <q-tab name="artisans" label="Artisans" />
           <q-tab name="groups" label="Groups" />
+          <q-tab name="shops" label="Shops" />
         </q-tabs>
 
         <q-separator />
@@ -178,6 +179,24 @@
             </q-card>
           </div>
         </div>
+        <div v-if="currentTab === 'shops'">
+          <!-- List of filtered shops -->
+          <div v-for="(shop, index) in filteredShops" :key="index">
+            <q-card class="q-mb-md" flat>
+              <q-card-section>
+                <q-item-label>{{ shop.name }}</q-item-label>
+                <q-item-label>{{ shop.location }}</q-item-label>
+                <q-item-label>{{ shop.description }}</q-item-label>
+                <q-btn
+                  label="View Shop"
+                  @click="viewShop(shop)"
+                  color="info"
+                  flat
+                />
+              </q-card-section>
+            </q-card>
+          </div>
+        </div>
       </div>
     </page-body>
   </page>
@@ -261,6 +280,23 @@ const filteredGroups = computed(() => {
     return matchesCounty && matchesConstituency;
   });
 });
+
+const filteredShops = computed(() => {
+  return store.state.shops.filter((shop) => {
+    const matchesCounty = selectedCounty.value
+      ? shop.county === selectedCounty.value.value
+      : true;
+    const matchesConstituency = selectedConstituency.value
+      ? shop.location === selectedConstituency.value.value
+      : true;
+
+    return matchesCounty && matchesConstituency;
+  });
+});
+
+function viewShop(shop) {
+  // Redirect or open shop details page/modal
+}
 
 function revealContact(artisan) {
   artisan.showContact = !artisan.showContact;
