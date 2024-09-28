@@ -11,6 +11,10 @@ $shadow-color: #021f09 !default;
 
 .q-body--layout-animate {
   .q-drawer {
-    transition: transform 0.8s, width 0.8s, top 0.8s, bottom 0.8s !important;
+    transition:
+      transform 0.8s,
+      width 0.8s,
+      top 0.8s,
+      bottom 0.8s !important;
   }
 }

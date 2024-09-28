@@ -1,6 +1,6 @@
-import { boot } from 'quasar/wrappers'
-import { AuthPlugin } from '@vueauth/core'
-import supabaseConfig from 'app/config/supabase'
+import { boot } from "quasar/wrappers";
+import { AuthPlugin } from "@vueauth/core";
+import supabaseConfig from "app/config/supabase";
 import {
   SupabasePlugin,
   useIdentityPasswordRegister,
@@ -13,20 +13,20 @@ import {
   useAuthenticatedRedirector,
   useFetchUser,
   usePasswordResetViaEmail,
-  useUpdatePassword
-} from '@vueauth/supabase'
+  useUpdatePassword,
+} from "@vueauth/supabase";
 
 export default boot(({ app }) => {
-  app.use(SupabasePlugin, supabaseConfig) // Be sure to update config/supabase to configure your app!
+  app.use(SupabasePlugin, supabaseConfig); // Be sure to update config/supabase to configure your app!
 
   app.use(AuthPlugin, {
-    default: 'supabase',
+    default: "supabase",
     providers: {
       supabase: {
         features: {
-          'identityPassword:register': useIdentityPasswordRegister,
-          'identityPassword:login': useIdentityPasswordLogin,
-          'identityPassword:logout': useIdentityPasswordLogout,
+          "identityPassword:register": useIdentityPasswordRegister,
+          "identityPassword:login": useIdentityPasswordLogin,
+          "identityPassword:logout": useIdentityPasswordLogout,
           unauthenticatedRedirector: useUnauthenticatedRedirector,
           authenticatedRedirector: useAuthenticatedRedirector,
           errorHandler: useHandlesErrors,
@@ -34,9 +34,9 @@ export default boot(({ app }) => {
           authState: useAuthState,
           authRedirector: useAuthRedirector,
           passwordResetViaEmail: usePasswordResetViaEmail,
-          updatePassword: useUpdatePassword
-        }
-      }
-    }
-  })
-})
+          updatePassword: useUpdatePassword,
+        },
+      },
+    },
+  });
+});

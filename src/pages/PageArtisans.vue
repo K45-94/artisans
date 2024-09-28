@@ -4,7 +4,7 @@
       <template #title>Find Artisans</template>
     </page-header>
     <page-body>
-      <div class="q-pt-lg q-pb-md q-pl-md q-pr-md text-brand">
+      <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
         <!-- Dropdowns for filters -->
         <q-select
           v-model="selectedCraft"
@@ -39,6 +39,7 @@
         >
           <q-tab name="artisans" label="Artisans" />
           <q-tab name="groups" label="Groups" />
+          <q-tab name="shops" label="Shops" />
         </q-tabs>
 
         <q-separator />
@@ -83,7 +84,7 @@
                   v-else-if="isAuthenticated"
                   label="Show Contact"
                   @click="revealContact(artisan)"
-                  color="info"
+                  color="secondary"
                   flat
                 />
                 <div v-if="artisan.showContact && isAuthenticated">
@@ -178,6 +179,24 @@
             </q-card>
           </div>
         </div>
+        <div v-if="currentTab === 'shops'">
+          <!-- List of filtered shops -->
+          <div v-for="(shop, index) in filteredShops" :key="index">
+            <q-card class="q-mb-md" flat>
+              <q-card-section>
+                <q-item-label>{{ shop.name }}</q-item-label>
+                <q-item-label>{{ shop.location }}</q-item-label>
+                <q-item-label>{{ shop.description }}</q-item-label>
+                <q-btn
+                  label="View Shop"
+                  @click="viewShop(shop)"
+                  color="info"
+                  flat
+                />
+              </q-card-section>
+            </q-card>
+          </div>
+        </div>
       </div>
     </page-body>
   </page>
@@ -199,22 +218,7 @@ const selectedCounty = ref("");
 const selectedConstituency = ref("");
 const currentTab = ref("artisans");
 
-const craftOptions = [
-  { label: "Farm Work", value: "Farm Work" },
-  { label: "Crafts & Handmade", value: "Crafts_Handmade" },
-  { label: "Plumber", value: "Plumber" },
-  { label: "Builder", value: "Builder" },
-  { label: "Shop Attendant", value: "Shop Attendant" },
-  { label: "Electrician", value: "Electrician" },
-  { label: "Mechanic", value: "Mechanic" },
-  { label: "Chef", value: "Chef" },
-  { label: "Cleaner", value: "Cleaner" },
-  { label: "Janitor", value: "Janitor" },
-  { label: "Helper", value: "Helper" },
-  { label: "Painter", value: "Painter" },
-  { label: "Gym Staff", value: "Gym Staff" },
-  { label: "Trainer", value: "Trainer" },
-];
+const craftOptions = computed(() => store.state.craftOptions);
 
 const countyOptions = computed(() =>
   store.state.locations.map((location) => ({
@@ -276,6 +280,23 @@ const filteredGroups = computed(() => {
     return matchesCounty && matchesConstituency;
   });
 });
+
+const filteredShops = computed(() => {
+  return store.state.shops.filter((shop) => {
+    const matchesCounty = selectedCounty.value
+      ? shop.county === selectedCounty.value.value
+      : true;
+    const matchesConstituency = selectedConstituency.value
+      ? shop.location === selectedConstituency.value.value
+      : true;
+
+    return matchesCounty && matchesConstituency;
+  });
+});
+
+function viewShop(shop) {
+  // Redirect or open shop details page/modal
+}
 
 function revealContact(artisan) {
   artisan.showContact = !artisan.showContact;

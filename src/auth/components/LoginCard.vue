@@ -9,6 +9,7 @@ const {
   form,
   loading,
   errors,
+  hasErrors,
   validationErrors,
   hasValidationErrors,
 } = useLogin();
@@ -25,7 +26,7 @@ const {
       />
 
       <!-- Errors -->
-      <div v-if="!hasValidationErrors">
+      <div v-if="hasErrors">
         <AuthErrorsBanner :errors="errors" />
       </div>
     </q-card-section>
@@ -34,15 +35,17 @@ const {
     <q-btn
       :loading="loading"
       class="full-width"
-      color="primary"
+      color="secondary"
       label="login"
       unelevated
+      outline=""
       @click="onLoginClicked"
     />
   </q-card>
 </template>
+
 <style lang="scss">
 .log-card {
-  background: linear-gradient(120deg, #000c04 15%, rgb(255, 255, 255) 85%);
+  background: var(--primary-bg);
 }
 </style>

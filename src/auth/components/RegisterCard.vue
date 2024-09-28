@@ -26,6 +26,8 @@ const {
         v-model:name="form.name"
         v-model:username="form.username"
         :validation-errors="validationErrors"
+        @submit="onRegisterClicked"
+        color="accent"
       />
 
       <!-- Errors -->
@@ -35,15 +37,17 @@ const {
     </q-card-section>
 
     <!-- Register Button -->
-    <q-btn
-      v-if="!registered"
-      :loading="loading"
-      class="full-width"
-      color="primary"
-      label="register"
-      unelevated
-      @click="onRegisterClicked"
-    />
+    <q-card-section>
+      <q-btn
+        :loading="loading"
+        class="full-width"
+        color="primary"
+        label="Register"
+        unelevated
+        type="submit"
+        @click="onRegisterClicked"
+      />
+    </q-card-section>
 
     <q-dialog :model-value="registered" persistent>
       <q-card class="reg-card" flat>
@@ -68,6 +72,6 @@ const {
 
 <style lang="scss">
 .reg-card {
-  background: linear-gradient(90deg, #00d546 15%, #00d546 85%);
+  background: var(--primary-bg);
 }
 </style>
