@@ -19,14 +19,7 @@ module.exports = configure(function (ctx) {
   return {
     supportTS: false,
 
-    boot: [
-      "i18n",
-      "axios",
-      "plum-components",
-      "router",
-      "authProvidersBoot",
-      "registerAuthRoutes",
-    ],
+    boot: ["i18n", "axios", "plum-components", "router"],
 
     css: ["app.scss"],
     extras: ["eva-icons", "material-icons"],
