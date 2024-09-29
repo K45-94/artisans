@@ -1,7 +1,7 @@
-// src/config/supabase.js
 export default {
-  supabaseUrl: process.env.VITE_SUPABASE_URL.replace(/['"]+/g, ""), // Remove extra quotes
-  supabaseKey: process.env.VITE_SUPABASE_ANON_KEY.replace(/['"]+/g, ""), // Remove extra quotes
+  credentials: {
+    supabaseUrl: "https://jbagkxihpvngdwahkoub.supabase.co",
+    supabaseKey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpiYWdreGlocHZuZ2R3YWhrb3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTgyNTA1NTgsImV4cCI6MTk3MzgyNjU1OH0.OgoRNT5BNvwameqXxspI2E8XH5vSb7K3JdT0gS024mI", // Ensure this key is valid
+  },
 };
-console.log("Supabase URL:", process.env.VITE_SUPABASE_URL);
-console.log("Supabase Key:", process.env.VITE_SUPABASE_ANON_KEY);
