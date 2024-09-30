@@ -28,6 +28,13 @@ const routes = [
                 path: "supportplumartisans", // Relative path without leading slash
                 component: () =>
                   import("src/pages/Profile/PageSupportPlumArtisans.vue"),
+                children: [
+                  {
+                    path: "agentapp", // Relative path without leading slash
+                    component: () =>
+                      import("src/pages/Profile/PageAgentApplicationForm.vue"),
+                  },
+                ],
               },
             ],
           },

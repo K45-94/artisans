@@ -63,6 +63,14 @@ export default boot(({ router }) => {
                 meta: { authOnly: true },
                 component: () =>
                   import("src/pages/Profile/PageSupportPlumArtisans.vue"),
+                children: [
+                  {
+                    path: "/profile/settings/agentapp",
+                    meta: { authOnly: true },
+                    component: () =>
+                      import("src/pages/Profile/PageAgentApplicationForm.vue"),
+                  },
+                ],
               },
             ],
           },

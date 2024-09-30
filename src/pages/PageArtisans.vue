@@ -29,7 +29,7 @@
           clearable
         />
 
-        <!-- Tabs for switching between Artisans and Groups -->
+        <!-- Tabs for switching between Artisans, Groups, and Shops -->
         <q-tabs
           v-model="currentTab"
           class="q-my-md"
@@ -39,7 +39,7 @@
         >
           <q-tab name="artisans" label="Artisans" />
           <q-tab name="groups" label="Groups" />
-          <q-tab name="shops" label="Shops" />
+          <q-tab name="shops" label="Shops" v-if="isAuthenticated" />
         </q-tabs>
 
         <q-separator />
@@ -179,14 +179,44 @@
             </q-card>
           </div>
         </div>
-        <div v-if="currentTab === 'shops'">
+
+        <div v-else-if="currentTab === 'shops' && isAuthenticated">
           <!-- List of filtered shops -->
           <div v-for="(shop, index) in filteredShops" :key="index">
             <q-card class="q-mb-md" flat>
               <q-card-section>
                 <q-item-label>{{ shop.name }}</q-item-label>
-                <q-item-label>{{ shop.location }}</q-item-label>
+                <!--<q-item-label>{{ shop.location }}</q-item-label>-->
                 <q-item-label>{{ shop.description }}</q-item-label>
+
+                <!-- List of Products -->
+                <q-item-label>Products:</q-item-label>
+                <ul>
+                  <li v-for="product in shop.products" :key="product.id">
+                    {{ product.name }} - Ksh {{ product.price }}
+                    <span
+                      :class="
+                        product.available ? 'text-positive' : 'text-negative'
+                      "
+                    >
+                      ({{ product.available ? "Available" : "Unavailable" }})
+                    </span>
+                  </li>
+                </ul>
+
+                <!-- List of Jobs -->
+                <q-item-label> Openings:</q-item-label>
+                <ul>
+                  <li v-for="job in shop.jobs" :key="job.id">
+                    {{ job.title }} - {{ job.shift }}
+                    <span
+                      :class="job.available ? 'text-positive' : 'text-negative'"
+                    >
+                      ({{ job.available ? "Available" : "Filled" }})
+                    </span>
+                  </li>
+                </ul>
+
                 <q-btn
                   label="View Shop"
                   @click="viewShop(shop)"
@@ -270,6 +300,9 @@ const filteredArtisans = computed(() => {
 
 const filteredGroups = computed(() => {
   return store.state.groups.filter((group) => {
+    const matchesCraft = selectedCraft.value
+      ? group.craft === selectedCraft.value.value
+      : true;
     const matchesCounty = selectedCounty.value
       ? group.county === selectedCounty.value.value
       : true;
@@ -277,12 +310,15 @@ const filteredGroups = computed(() => {
       ? group.location === selectedConstituency.value.value
       : true;
 
-    return matchesCounty && matchesConstituency;
+    return matchesCraft && matchesCounty && matchesConstituency;
   });
 });
 
 const filteredShops = computed(() => {
   return store.state.shops.filter((shop) => {
+    const matchesCraft = selectedCraft.value
+      ? shop.craft === selectedCraft.value.value
+      : true;
     const matchesCounty = selectedCounty.value
       ? shop.county === selectedCounty.value.value
       : true;
@@ -290,13 +326,9 @@ const filteredShops = computed(() => {
       ? shop.location === selectedConstituency.value.value
       : true;
 
-    return matchesCounty && matchesConstituency;
+    return matchesCraft && matchesCounty && matchesConstituency;
   });
 });
-
-function viewShop(shop) {
-  // Redirect or open shop details page/modal
-}
 
 function revealContact(artisan) {
   artisan.showContact = !artisan.showContact;
@@ -309,12 +341,12 @@ function revealGroupContact(group) {
 function toggleMembers(group) {
   group.showMembers = !group.showMembers;
 }
+
+function viewShop(shop) {
+  // Logic to view shop details
+}
 </script>
 
 <style scoped>
-.availability-indicator {
-  width: 10px;
-  height: 100%;
-  margin-right: 10px;
-}
+/* Add your custom styles here */
 </style>

@@ -35,7 +35,7 @@
                   <q-btn
                     type="submit"
                     label="Update Profile"
-                    color="primary"
+                    color="secondary"
                     class="q-mt-md"
                   />
                 </q-form>

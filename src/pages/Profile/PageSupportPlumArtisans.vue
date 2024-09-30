@@ -70,8 +70,15 @@
                 wide array of activities such as housing-movement services or
                 looking for an apartment assistance.
               </p>
-              <!-- Add more definitions as needed -->
             </div>
+            <q-btn
+              label="Agent Application"
+              color="secondary"
+              class="full-width"
+              flat
+              to="/profile/settings/supportplumartisans/agentapp"
+            >
+            </q-btn>
           </div>
         </div>
       </div>

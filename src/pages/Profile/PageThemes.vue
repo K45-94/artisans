@@ -54,7 +54,7 @@ export default defineComponent({
   },
   name: "PageThemes",
   setup() {
-    const themes = ref("op3");
+    const themes = ref("op1");
     const backgroundClass = ref("");
     const textModel = ref(2); // Default to medium size
     const fontWeightModel = ref(2);
@@ -62,7 +62,6 @@ export default defineComponent({
 
     const select = [
       { label: "Bright background", value: "op1" },
-      { label: "Dim background", value: "op2" },
       { label: "Dark background", value: "op3" },
     ];
 
@@ -75,9 +74,6 @@ export default defineComponent({
       if (newVal === "op1") {
         backgroundClass.value = "bright-background";
         store.state.theme = "bright-background";
-      } else if (newVal === "op2") {
-        backgroundClass.value = "dim-background";
-        store.state.theme = "dim-background";
       } else if (newVal === "op3") {
         backgroundClass.value = "dark-background";
         store.state.theme = "dark-background";

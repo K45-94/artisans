@@ -14,12 +14,11 @@ const state = reactive({
     },
   ],
   usePageTransition: false,
-  theme: "dark-background", // Default theme
-  textColor: "white", // Default text color
+  theme: "bright-background",
+  textColor: "", // Default text color
   textColorOptions: {
     "bright-background": ["black", "green"],
-    "dim-background": ["black", "green"],
-    "dark-background": ["white", "violet", "green"],
+    "dark-background": ["white", "green"],
   },
   craftOptions: [
     { value: "Plumber", label: "Plumber" },
