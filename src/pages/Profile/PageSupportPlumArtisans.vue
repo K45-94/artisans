@@ -71,8 +71,11 @@
                 looking for an apartment assistance.
               </p>
             </div>
+
+            <!-- Create Shop Button -->
             <q-btn
-              label="Agent Application"
+              v-if="isLoggedIn"
+              label="Create Shop"
               color="secondary"
               class="full-width"
               flat
@@ -88,13 +91,31 @@
 </template>
 
 <script>
+import { defineComponent, ref, watch } from "vue";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
 import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
-import { defineComponent } from "vue";
+import { useAuthState } from "@vueauth/core";
 
 export default defineComponent({
-  components: { Page, PageHeader, PageHeaderButtonBackLeft },
   name: "SupportPlumArtisans",
+  components: {
+    Page,
+    PageHeader,
+    PageHeaderButtonBackLeft,
+  },
+  setup() {
+    const { isAuthenticated } = useAuthState();
+    const isLoggedIn = ref(isAuthenticated.value);
+
+    // Watch for changes in authentication state
+    watch(isAuthenticated, (newVal) => {
+      isLoggedIn.value = newVal;
+    });
+
+    return {
+      isLoggedIn,
+    };
+  },
 });
 </script>

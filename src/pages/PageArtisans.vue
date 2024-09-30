@@ -52,7 +52,7 @@
               <q-card-section class="col-8">
                 <q-item-label>{{ artisan.name }}</q-item-label>
                 <q-item-label>{{ artisan.craft }}</q-item-label>
-                <q-item-label>
+                <q-item-label v-if="isAuthenticated">
                   {{ artisan.county }} - {{ artisan.location }}
                 </q-item-label>
                 <!-- Add availability status and last job completion date -->
@@ -346,7 +346,3 @@ function viewShop(shop) {
   // Logic to view shop details
 }
 </script>
-
-<style scoped>
-/* Add your custom styles here */
-</style>
