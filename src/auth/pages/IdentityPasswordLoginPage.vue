@@ -1,5 +1,9 @@
 <script setup>
 import AuthLoginCard from "src/auth/components/LoginCard.vue";
+import { useAuthState } from "@vueauth/core";
+
+// Destructure isAuthenticated and ensure it’s reactive
+const { isAuthenticated } = useAuthState();
 </script>
 
 <template>
@@ -25,7 +29,10 @@ import AuthLoginCard from "src/auth/components/LoginCard.vue";
         class="full-width q-ma-sm q-pb-sm"
         :to="{ name: 'auth.register' }"
       ></q-btn>
+
+      <!-- Show 'No Login' button only if the user is not authenticated -->
       <q-btn
+        v-if="!isAuthenticated"
         no-caps
         label="No Login"
         color="primary"
@@ -36,6 +43,7 @@ import AuthLoginCard from "src/auth/components/LoginCard.vue";
     </div>
   </div>
 </template>
+
 <style lang="scss">
 .log {
   min-height: 100vh;

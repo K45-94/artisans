@@ -1078,22 +1078,7 @@ const state = reactive({
       showContact: false,
     },
   ],
-  craftOptions: [
-    { value: "Plumber", label: "Plumber" },
-    { value: "Electrician", label: "Electrician" },
-    { value: "Chef", label: "Chef" },
-    { value: "Janitor", label: "Janitor" },
-    { label: "Farm Work", value: "Farm Work" },
-    { label: "Crafts & Handmade", value: "Crafts_Handmade" },
-    { label: "Builder", value: "Builder" },
-    { label: "Shop Attendant", value: "Shop Attendant" },
-    { label: "Mechanic", value: "Mechanic" },
-    { label: "Cleaner", value: "Cleaner" },
-    { label: "Helper", value: "Helper" },
-    { label: "Painter", value: "Painter" },
-    { label: "Gym Staff", value: "Gym Staff" },
-    { label: "Trainer", value: "Trainer" },
-  ],
+
   shops: [
     {
       id: 1,
@@ -1124,8 +1109,457 @@ const state = reactive({
           title: "Sales Assistant",
           shift: "Afternoon",
           available: true,
+          details: "Help in food prep, serving, cleaning, etc.",
         },
         { id: 2, title: "Cashier", shift: "Evening", available: false },
+      ],
+    },
+    {
+      id: 3,
+      name: "Bike Repair Shop",
+      location: "Kasarani",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Bike Tire", price: 1500, available: true },
+        { id: 2, name: "Bike Chain", price: 700, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Mechanic Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Assist with bike repairs and maintenance.",
+        },
+        {
+          id: 2,
+          title: "Cashier",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Milk ATM Shop",
+      location: "Kawangware",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Milk 500ml", price: 30, available: true },
+        { id: 2, name: "Milk 1L", price: 60, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Shop Attendant",
+          shift: "Morning",
+          available: true,
+          details:
+            "Assist customers with dispensing milk and handling payments.",
+        },
+        {
+          id: 2,
+          title: "Cleaner",
+          shift: "Evening",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: "Cake Selling Spot",
+      location: "Kibera",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Vanilla Cake Slice", price: 50, available: true },
+        { id: 2, name: "Chocolate Cake Slice", price: 60, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling cakes and maintaining the shop.",
+        },
+        {
+          id: 2,
+          title: "Baker Assistant",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: "Mandazi Cooking Spot",
+      location: "Gikomba",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Mandazi", price: 10, available: true },
+        { id: 2, name: "Samosa", price: 20, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Cook Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Assist in preparing and cooking Mandazi and Samosa.",
+        },
+        {
+          id: 2,
+          title: "Sales Assistant",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    // Add more shops as needed
+    {
+      id: 7,
+      name: "Kibanda Shop 2",
+      location: "Kayole",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Rice", price: 30, available: true },
+        { id: 2, name: "Beans", price: 40, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in food prep, serving, cleaning, etc.",
+        },
+        { id: 2, title: "Cleaner", shift: "Evening", available: false },
+      ],
+    },
+    {
+      id: 8,
+      name: "Fruit Stand",
+      location: "Lang'ata",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Bananas", price: 10, available: true },
+        { id: 2, name: "Apples", price: 20, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling fruits and maintaining the stand.",
+        },
+        {
+          id: 2,
+          title: "Stock Keeper",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 9,
+      name: "Vegetable Shop",
+      location: "Dandora",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Tomatoes", price: 50, available: true },
+        { id: 2, name: "Cabbages", price: 30, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling vegetables and maintaining the shop.",
+        },
+        {
+          id: 2,
+          title: "Cleaner",
+          shift: "Evening",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 10,
+      name: "Clothing Stall",
+      location: "Githurai",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "T-Shirts", price: 200, available: true },
+        { id: 2, name: "Jeans", price: 500, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling clothes and maintaining the stall.",
+        },
+        {
+          id: 2,
+          title: "Stock Keeper",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 11,
+      name: "Kiosk",
+      location: "South B",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Bread", price: 50, available: true },
+        { id: 2, name: "Milk", price: 40, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Shop Attendant",
+          shift: "Morning",
+          available: true,
+          details: "Assist customers and handle payments.",
+        },
+        {
+          id: 2,
+          title: "Cleaner",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 12,
+      name: "Electronics Repair Shop",
+      location: "Thika",
+      county: "Kiambu",
+      products: [
+        {
+          id: 1,
+          name: "Phone Screen Replacement",
+          price: 2000,
+          available: true,
+        },
+        { id: 2, name: "Laptop Battery", price: 3000, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Technician Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Assist with electronics repairs and maintenance.",
+        },
+        {
+          id: 2,
+          title: "Cashier",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 13,
+      name: "Bike Repair Shop",
+      location: "Kasarani",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Bike Tire", price: 1500, available: true },
+        { id: 2, name: "Bike Chain", price: 700, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Mechanic Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Assist with bike repairs and maintenance.",
+        },
+        {
+          id: 2,
+          title: "Cashier",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 14,
+      name: "Milk ATM Shop",
+      location: "Kawangware",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Milk 500ml", price: 30, available: true },
+        { id: 2, name: "Milk 1L", price: 60, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Shop Attendant",
+          shift: "Morning",
+          available: true,
+          details:
+            "Assist customers with dispensing milk and handling payments.",
+        },
+        {
+          id: 2,
+          title: "Cleaner",
+          shift: "Evening",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 15,
+      name: "Cake Selling Spot",
+      location: "Kibera",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Vanilla Cake Slice", price: 50, available: true },
+        { id: 2, name: "Chocolate Cake Slice", price: 60, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling cakes and maintaining the shop.",
+        },
+        {
+          id: 2,
+          title: "Baker Assistant",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 16,
+      name: "Mandazi Cooking Spot",
+      location: "Gikomba",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Mandazi", price: 10, available: true },
+        { id: 2, name: "Samosa", price: 20, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Cook Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Assist in preparing and cooking Mandazi and Samosa.",
+        },
+        {
+          id: 2,
+          title: "Sales Assistant",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 17,
+      name: "Kibanda Shop 2",
+      location: "Kayole",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Rice", price: 30, available: true },
+        { id: 2, name: "Beans", price: 40, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in food prep, serving, cleaning, etc.",
+        },
+        { id: 2, title: "Cleaner", shift: "Evening", available: false },
+      ],
+    },
+    {
+      id: 18,
+      name: "Fruit Stand",
+      location: "Lang'ata",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Bananas", price: 10, available: true },
+        { id: 2, name: "Apples", price: 20, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling fruits and maintaining the stand.",
+        },
+        {
+          id: 2,
+          title: "Stock Keeper",
+          shift: "Afternoon",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 19,
+      name: "Vegetable Shop",
+      location: "Dandora",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "Tomatoes", price: 50, available: true },
+        { id: 2, name: "Cabbages", price: 30, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling vegetables and maintaining the shop.",
+        },
+        {
+          id: 2,
+          title: "Cleaner",
+          shift: "Evening",
+          available: false,
+        },
+      ],
+    },
+    {
+      id: 20,
+      name: "Clothing Stall",
+      location: "Githurai",
+      county: "Nairobi",
+      products: [
+        { id: 1, name: "T-Shirts", price: 200, available: true },
+        { id: 2, name: "Jeans", price: 500, available: true },
+      ],
+      jobs: [
+        {
+          id: 1,
+          title: "Sales Assistant",
+          shift: "Morning",
+          available: true,
+          details: "Help in selling clothes and maintaining the stall.",
+        },
+        {
+          id: 2,
+          title: "Stock Keeper",
+          shift: "Afternoon",
+          available: false,
+        },
       ],
     },
   ],

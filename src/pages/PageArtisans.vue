@@ -55,7 +55,6 @@
                 <q-item-label v-if="isAuthenticated">
                   {{ artisan.county }} - {{ artisan.location }}
                 </q-item-label>
-                <!-- Add availability status and last job completion date -->
                 <q-item-label>
                   Status:
                   <span
@@ -72,7 +71,6 @@
                   Last Job: {{ artisan.lastJobCompletionDate }}
                 </q-item-label>
 
-                <!-- Artisan contact details -->
                 <q-btn
                   v-if="artisan.showContact && isAuthenticated"
                   label="Hide Contact"
@@ -91,7 +89,6 @@
                   <q-item-label>Phone: {{ artisan.phone }}</q-item-label>
                 </div>
 
-                <!-- Show login button if user is not authenticated -->
                 <q-btn
                   v-if="!isAuthenticated && !artisan.showContact"
                   label="Show Contact"
@@ -112,7 +109,6 @@
                 <q-item-label>Group: {{ group.name }}</q-item-label>
                 <q-item-label>Members: {{ group.members.length }}</q-item-label>
                 <q-item-label>Location: {{ group.location }}</q-item-label>
-                <!-- Add availability status and last job completion date -->
                 <q-item-label>
                   Status:
                   <span
@@ -129,7 +125,6 @@
                   Last Job: {{ group.lastJobCompletionDate }}
                 </q-item-label>
 
-                <!-- Group contact details -->
                 <q-btn
                   v-if="group.showContact && isAuthenticated"
                   label="Hide Contact"
@@ -148,7 +143,6 @@
                   <q-item-label>Phone: {{ group.contactPhone }}</q-item-label>
                 </div>
 
-                <!-- Render group members -->
                 <q-btn
                   v-if="group.showMembers"
                   label="Hide Members"
@@ -164,14 +158,12 @@
                   flat
                 />
                 <div v-if="group.showMembers">
-                  <!-- Render group members -->
                   <div
                     v-for="(member, memberIndex) in group.members"
                     :key="memberIndex"
                   >
                     <q-item-label class="flex flex-right">
                       {{ member.role }}
-                      <!--{{ member.fullName }}-->
                     </q-item-label>
                   </div>
                 </div>
@@ -186,7 +178,6 @@
             <q-card class="q-mb-md" flat>
               <q-card-section>
                 <q-item-label>{{ shop.name }}</q-item-label>
-                <!--<q-item-label>{{ shop.location }}</q-item-label>-->
                 <q-item-label>{{ shop.description }}</q-item-label>
 
                 <!-- List of Products -->
@@ -205,7 +196,7 @@
                 </ul>
 
                 <!-- List of Jobs -->
-                <q-item-label> Openings:</q-item-label>
+                <q-item-label>Openings:</q-item-label>
                 <ul>
                   <li v-for="job in shop.jobs" :key="job.id">
                     {{ job.title }} - {{ job.shift }}
@@ -214,15 +205,16 @@
                     >
                       ({{ job.available ? "Available" : "Filled" }})
                     </span>
+                    <!-- Apply button for available jobs -->
+                    <q-btn
+                      v-if="job.available"
+                      label="Apply"
+                      @click="applyForJob(job)"
+                      color="primary"
+                      flat
+                    />
                   </li>
                 </ul>
-
-                <q-btn
-                  label="View Shop"
-                  @click="viewShop(shop)"
-                  color="info"
-                  flat
-                />
               </q-card-section>
             </q-card>
           </div>
@@ -241,15 +233,19 @@ defineOptions({
   name: "PageArtisans",
 });
 
+// Access the authentication state to check if the user is authenticated
 const { isAuthenticated } = useAuthState();
 
+// Reactive variables for selected filter options
 const selectedCraft = ref("");
 const selectedCounty = ref("");
 const selectedConstituency = ref("");
-const currentTab = ref("artisans");
+const currentTab = ref("artisans"); // Default to 'artisans' tab
 
+// Compute the craft options from the store
 const craftOptions = computed(() => store.state.craftOptions);
 
+// Compute the county options from the store
 const countyOptions = computed(() =>
   store.state.locations.map((location) => ({
     label: location.name,
@@ -257,8 +253,10 @@ const countyOptions = computed(() =>
   })),
 );
 
+// Reactive variable for constituency options, which will be updated based on the selected county
 const constituencyOptions = ref([]);
 
+// Watch for changes in the selected county and update the constituency options accordingly
 watch(selectedCounty, (newVal) => {
   if (newVal) {
     const countyName = typeof newVal === "object" ? newVal.value : newVal;
@@ -282,6 +280,7 @@ watch(selectedCounty, (newVal) => {
   selectedConstituency.value = "";
 });
 
+// Compute the filtered artisans based on the selected filter options
 const filteredArtisans = computed(() => {
   return store.state.artisans.filter((artisan) => {
     const matchesCraft = selectedCraft.value
@@ -298,11 +297,9 @@ const filteredArtisans = computed(() => {
   });
 });
 
+// Compute the filtered groups based on the selected filter options
 const filteredGroups = computed(() => {
   return store.state.groups.filter((group) => {
-    const matchesCraft = selectedCraft.value
-      ? group.craft === selectedCraft.value.value
-      : true;
     const matchesCounty = selectedCounty.value
       ? group.county === selectedCounty.value.value
       : true;
@@ -310,15 +307,12 @@ const filteredGroups = computed(() => {
       ? group.location === selectedConstituency.value.value
       : true;
 
-    return matchesCraft && matchesCounty && matchesConstituency;
+    return matchesCounty && matchesConstituency;
   });
 });
-
+// Compute the filtered shops based on the selected filter options
 const filteredShops = computed(() => {
   return store.state.shops.filter((shop) => {
-    const matchesCraft = selectedCraft.value
-      ? shop.craft === selectedCraft.value.value
-      : true;
     const matchesCounty = selectedCounty.value
       ? shop.county === selectedCounty.value.value
       : true;
@@ -326,23 +320,29 @@ const filteredShops = computed(() => {
       ? shop.location === selectedConstituency.value.value
       : true;
 
-    return matchesCraft && matchesCounty && matchesConstituency;
+    return matchesCounty && matchesConstituency;
   });
 });
 
-function revealContact(artisan) {
+// Function to toggle contact visibility for artisans
+const revealContact = (artisan) => {
   artisan.showContact = !artisan.showContact;
-}
+};
 
-function revealGroupContact(group) {
+// Function to toggle contact visibility for groups
+const revealGroupContact = (group) => {
   group.showContact = !group.showContact;
-}
+};
 
-function toggleMembers(group) {
+// Function to toggle group members visibility
+const toggleMembers = (group) => {
   group.showMembers = !group.showMembers;
-}
+};
 
-function viewShop(shop) {
-  // Logic to view shop details
-}
+// Function to apply for a job
+const applyForJob = (job) => {
+  // Here, you can implement the logic to submit a job application
+  console.log("Applying for job:", job);
+  // You might want to trigger a modal or redirect to an application page
+};
 </script>
