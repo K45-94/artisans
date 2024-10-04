@@ -1567,15 +1567,30 @@ const state = reactive({
 
 const store = {
   state,
+
+  // Set user details
   setUserDetails(userDetails) {
-    state.user.displayName = userDetails.displayName;
-    state.user.username = userDetails.username;
-    state.user.email = userDetails.email;
-    state.user.jobCategory = userDetails.jobCategory;
-    state.user.availability = userDetails.availability;
+    this.state.user.displayName = userDetails.displayName;
+    this.state.user.username = userDetails.username;
+    this.state.user.email = userDetails.email;
+    this.state.user.jobCategory = userDetails.jobCategory;
+    this.state.user.availability = userDetails.availability;
   },
+
   setLocation(location) {
-    state.locations.push(location);
+    this.state.locations.push(location);
+  },
+
+  toggleArtisanContact(artisan) {
+    artisan.showContact = !artisan.showContact;
+  },
+
+  toggleGroupContact(group) {
+    group.showContact = !group.showContact;
+  },
+
+  setAuthenticationStatus(isAuthenticated) {
+    this.state.isAuthenticated = isAuthenticated;
   },
 };
 export default store;
