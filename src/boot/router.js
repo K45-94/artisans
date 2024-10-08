@@ -3,6 +3,7 @@ import { boot } from "quasar/wrappers";
 import store from "src/plumStore";
 
 let routerInstance = null;
+
 export default boot(({ router }) => {
   routerInstance = router;
   router.afterEach(({ path: fromPath }, { path: toPath }) => {

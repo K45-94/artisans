@@ -9,9 +9,5 @@ export function usePlumAuthState() {
     return isAuthenticated.value && user.value?.role === "shop_owner";
   });
 
-  console.log("isAuthenticated:", isAuthenticated.value);
-  console.log("user:", user.value);
-  console.log("isShopOwner:", isShopOwner.value);
-
   return { isAuthenticated, isShopOwner };
 }

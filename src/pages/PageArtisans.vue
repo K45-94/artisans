@@ -234,8 +234,9 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
-import store from "src/plumStore";
+import { ref, computed, onMounted } from "vue";
+import supabase from "src/config/supabase";
+
 import { useAuthState } from "@vueauth/core";
 
 // Access the authentication state to check if the user is authenticated
@@ -249,112 +250,92 @@ const currentTab = ref("artisans"); // Default to 'artisans' tab
 const searchTerm = ref(""); // Search term input
 const loading = ref(true); // Loading state
 
-// Ensure store data is available before mapping
-const craftOptions = computed(() =>
-  store.state.craftOptions ? store.state.craftOptions : [],
-);
+const artisans = ref([]);
+const groups = ref([]);
+const shops = ref([]);
 
-const countyOptions = computed(() =>
-  store.state.locations
-    ? store.state.locations.map((location) => ({
-        label: location.name,
-        value: location.name,
-      }))
-    : [],
-);
-
-// Reactive variable for constituency options, which will be updated based on the selected county
-const constituencyOptions = ref([]);
-
-// Watch for changes in the selected county and update the constituency options accordingly
-watch(selectedCounty, (newVal) => {
-  if (newVal) {
-    const countyName = typeof newVal === "object" ? newVal.value : newVal;
-    const selectedLocation = store.state.locations?.find(
-      (location) => location.name === countyName,
-    );
-
-    if (selectedLocation) {
-      constituencyOptions.value = selectedLocation.constituencies.map(
-        (constituency) => ({
-          label: constituency,
-          value: constituency,
-        }),
-      );
-    } else {
-      constituencyOptions.value = [];
-    }
+async function fetchArtisans() {
+  const { data, error } = await supabase.from("artisans").select("*");
+  if (error) {
+    console.error("Error fetching artisans:", error);
   } else {
-    constituencyOptions.value = [];
+    artisans.value = data;
   }
-  selectedConstituency.value = "";
+}
+
+async function fetchGroups() {
+  const { data, error } = await supabase.from("groups").select("*");
+  if (error) {
+    console.error("Error fetching groups:", error);
+  } else {
+    groups.value = data;
+  }
+}
+
+async function fetchShops() {
+  const { data, error } = await supabase.from("shops").select("*");
+  if (error) {
+    console.error("Error fetching shops:", error);
+  } else {
+    shops.value = data;
+  }
+}
+
+// Call the fetch functions on component mount
+onMounted(async () => {
+  loading.value = true;
+  await Promise.all([fetchArtisans(), fetchGroups(), fetchShops()]);
+  loading.value = false;
 });
 
-// Compute the filtered artisans based on the selected filter options
+// Filtering logic
 const filteredArtisans = computed(() => {
-  const artisans = store.state.artisans || [];
-  return artisans.filter((artisan) => {
-    const matchesCraft =
-      !selectedCraft.value || artisan.craft === selectedCraft.value;
-    const matchesCounty =
-      !selectedCounty.value || artisan.county === selectedCounty.value;
-    const matchesConstituency =
-      !selectedConstituency.value ||
-      artisan.constituency === selectedConstituency.value;
-    const matchesSearch =
-      !searchTerm.value ||
-      artisan.name.toLowerCase().includes(searchTerm.value.toLowerCase());
-
+  return artisans.value.filter((artisan) => {
     return (
-      matchesCraft && matchesCounty && matchesConstituency && matchesSearch
+      (artisan.craft === selectedCraft.value || !selectedCraft.value) &&
+      (artisan.county === selectedCounty.value || !selectedCounty.value) &&
+      (artisan.constituency === selectedConstituency.value ||
+        !selectedConstituency.value) &&
+      (artisan.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
+        artisan.craft.toLowerCase().includes(searchTerm.value.toLowerCase()))
     );
   });
 });
 
-// Similar computed properties for groups and shops
 const filteredGroups = computed(() => {
-  const groups = store.state.groups || [];
-  return groups.filter((group) => {
-    const matchesCounty =
-      !selectedCounty.value || group.county === selectedCounty.value;
-    const matchesSearch =
-      !searchTerm.value ||
-      group.name.toLowerCase().includes(searchTerm.value.toLowerCase());
-
-    return matchesCounty && matchesSearch;
+  return groups.value.filter((group) => {
+    return (
+      (group.location === selectedCounty.value || !selectedCounty.value) &&
+      (group.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
+        group.location.toLowerCase().includes(searchTerm.value.toLowerCase()))
+    );
   });
 });
 
 const filteredShops = computed(() => {
-  const shops = store.state.shops || [];
-  return shops.filter((shop) => {
-    const matchesCounty =
-      !selectedCounty.value || shop.county === selectedCounty.value;
-    const matchesSearch =
-      !searchTerm.value ||
-      shop.name.toLowerCase().includes(searchTerm.value.toLowerCase());
-
-    return matchesCounty && matchesSearch;
+  return shops.value.filter((shop) => {
+    return (
+      shop.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
+      shop.description.toLowerCase().includes(searchTerm.value.toLowerCase())
+    );
   });
 });
 
-// Simulate loading artisans, groups, and shops data
-setTimeout(() => {
-  loading.value = false; // Set loading to false after data is fetched
-}, 1000);
-
-// Function to reveal contact details of artisans
+// Contact revealing and job application logic
 function revealContact(artisan) {
-  artisan.showContact = !artisan.showContact; // Toggle the visibility of contact details
+  artisan.showContact = !artisan.showContact;
 }
 
-// Function to reveal contact details of groups
 function revealGroupContact(group) {
-  group.showContact = !group.showContact; // Toggle the visibility of contact details
+  group.showContact = !group.showContact;
 }
 
-// Function to apply for a job at a shop
+function toggleMembers(group) {
+  group.showMembers = !group.showMembers;
+}
+
 function applyForJob(job) {
-  // Implementation for applying for a job (e.g., show a dialog or redirect)
+  // Application logic here, e.g., navigate to a form or contact shop owner
+  console.log("Applying for job:", job);
 }
 </script>
