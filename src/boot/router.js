@@ -1,3 +1,4 @@
+// src/boot/router.js
 import { boot } from "quasar/wrappers";
 import store from "src/plumStore";
 

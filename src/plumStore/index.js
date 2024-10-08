@@ -1,3 +1,4 @@
+// src/plumStore/index.js
 import { reactive } from "vue";
 
 const state = reactive({
@@ -869,6 +870,14 @@ const state = reactive({
         "Mwatate ",
       ],
     },
+    async function insertLocations() {
+      const { data, error } = await supabase
+        .from("locations")
+        .insert(locations);
+
+      if (error) console.error("Error inserting locations:", error);
+      else console.log("Locations inserted:", data);
+    },
   ],
   artisans: [
     {
@@ -1026,6 +1035,12 @@ const state = reactive({
       availabilityStatus: "Available",
       lastJobCompletionDate: "2024-09-15",
       showContact: false,
+    },
+    async function insertArtisans() {
+      const { data, error } = await supabase.from("artisans").insert(artisans);
+
+      if (error) console.error("Error inserting artisans:", error);
+      else console.log("Artisans inserted:", data);
     },
   ],
   groups: [
@@ -1215,7 +1230,6 @@ const state = reactive({
         },
       ],
     },
-    // Add more shops as needed
     {
       id: 7,
       name: "Kibanda Shop 2",
@@ -1561,6 +1575,12 @@ const state = reactive({
           available: false,
         },
       ],
+    },
+    async function insertShops() {
+      const { data, error } = await supabase.from("shops").insert(shops);
+
+      if (error) console.error("Error inserting shops:", error);
+      else console.log("Shops inserted:", data);
     },
   ],
 });

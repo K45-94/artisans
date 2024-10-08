@@ -9,28 +9,28 @@
 /* eslint-env node */
 const ESLintPlugin = require("eslint-webpack-plugin");
 const { config } = require("dotenv");
-const { configure } = require("quasar/wrappers");
 const { join } = require("path");
 
 // Load environment variables from .env file
 config({ path: join(__dirname, ".env") });
 
-module.exports = configure(function (ctx) {
+module.exports = function (ctx) {
   return {
     supportTS: false,
 
     boot: ["i18n", "axios", "plum-components", "router"],
 
     css: ["app.scss"],
+
     extras: ["eva-icons", "material-icons"],
 
     build: {
-      vueRouterMode: "hash",
+      vueRouterMode: "hash", // or 'history'
+
+      // Inject the environment variables for Supabase
       env: {
-        VITE_SUPABASE_URL: JSON.stringify(process.env.VITE_SUPABASE_URL),
-        VITE_SUPABASE_ANON_KEY: JSON.stringify(
-          process.env.VITE_SUPABASE_ANON_KEY,
-        ),
+        SUPABASE_URL: JSON.stringify(process.env.SUPABASE_URL),
+        SUPABASE_ANON_KEY: JSON.stringify(process.env.SUPABASE_ANON_KEY),
       },
 
       chainWebpack(chain) {
@@ -40,7 +40,6 @@ module.exports = configure(function (ctx) {
       },
 
       extendWebpack(cfg) {
-        // Enable tree shaking
         cfg.optimization = {
           splitChunks: {
             chunks: "all",
@@ -82,7 +81,7 @@ module.exports = configure(function (ctx) {
 
     pwa: {
       workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxOptions: {},
 
       chainWebpackCustomSW(chain) {
         chain
@@ -91,9 +90,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `plumV3`,
-        short_name: `plumV3`,
-        description: `Building Plum with vue 3`,
+        name: "plumV3",
+        short_name: "plumV3",
+        description: "Building Plum with vue 3",
         display: "standalone",
         orientation: "portrait",
         background_color: "#000000",
@@ -161,4 +160,4 @@ module.exports = configure(function (ctx) {
       },
     },
   };
-});
+};

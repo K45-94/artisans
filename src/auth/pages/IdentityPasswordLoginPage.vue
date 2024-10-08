@@ -1,9 +1,12 @@
 <script setup>
 import AuthLoginCard from "src/auth/components/LoginCard.vue";
 import { useAuthState } from "@vueauth/core";
+import { onMounted } from "vue"; // This import looks inactive. are we good?
+import useLogin from "src/auth/composables/useLogin"; // Import your login composable
 
 // Destructure isAuthenticated and ensure it’s reactive
 const { isAuthenticated } = useAuthState();
+const { onTwitterLogin } = useLogin(); // Use the Twitter login function from your composable
 </script>
 
 <template>
@@ -14,16 +17,24 @@ const { isAuthenticated } = useAuthState();
       <q-btn
         class="flex flex-center q-pa-md"
         color="grey-8"
-        label="forgot password"
+        label="Forgot password"
         flat
         :to="{ name: 'auth.requestPasswordReset' }"
+      ></q-btn>
+      <!-- Twitter Login Button -->
+      <q-btn
+        class="full-width q-ma-sm q-pb-sm"
+        color="info"
+        outline
+        label="X Login"
+        @click="onTwitterLogin"
       ></q-btn>
     </div>
     <div class="flex flex-center q-pa-md">
       <div class="text-gradient">Need an account?</div>
       <q-btn
         no-caps
-        label="register"
+        label="Register"
         color="secondary"
         outline
         class="full-width q-ma-sm q-pb-sm"

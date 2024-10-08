@@ -1,3 +1,4 @@
+// src/auth/components/forms/RegisterForm.vue
 <template>
   <q-form @submit.prevent="onSubmit">
     <q-input
@@ -32,6 +33,30 @@
       :error-message="validationErrors?.['password_confirmation']?.[0]"
       class="q-mb-sm"
       color="secondary"
+    />
+    <q-input
+      v-model="localName"
+      label="Display Name"
+      outlined
+      required
+      :error="!!validationErrors?.['name']"
+      :error-message="validationErrors?.['name']?.[0]"
+      class="q-mb-sm"
+      color="secondary"
+    />
+    <q-input
+      v-model="localUsername"
+      label="Username"
+      outlined
+      required
+      :rules="[
+        (val) => !!val || 'Username is required',
+        (val) => val.length >= 3 || 'Username must be at least 3 characters',
+      ]"
+      :error="!!validationErrors?.['username']"
+      :error-message="validationErrors?.['username']?.[0]"
+      class="q-mb-sm"
+      color="info"
     />
   </q-form>
 </template>

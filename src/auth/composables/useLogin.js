@@ -1,5 +1,7 @@
+// src/auth/composables/useLogin.js
 import { useRouter } from "vue-router";
 import { useIdentityPasswordLogin, useAuthState } from "@vueauth/core";
+import { supabase } from "src/supabaseClient"; // Import your Supabase client
 
 export default () => {
   const router = useRouter();
@@ -11,7 +13,6 @@ export default () => {
     validationErrors,
     hasValidationErrors,
     login,
-    isReauthenticating,
     resetForm,
     resetErrors,
   } = useIdentityPasswordLogin();
@@ -29,6 +30,19 @@ export default () => {
     }
   }
 
+  async function onTwitterLogin() {
+    resetErrors();
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "twitter",
+      options: {
+        redirectTo: "https://plum-cl.netlify.app/#/artisans", // This is the URL where the user will be redirected after successful login.
+      },
+    });
+    if (error) {
+      console.error("Twitter login error:", error);
+    }
+  }
+
   function onForgotPasswordClicked() {
     router.push({ name: "auth.requestPasswordReset" });
   }
@@ -42,6 +56,7 @@ export default () => {
   return {
     onLoginClicked,
     onForgotPasswordClicked,
+    onTwitterLogin,
     form,
     loading,
     errors,
@@ -50,7 +65,6 @@ export default () => {
     hasValidationErrors,
     login,
     resetForm,
-    isReauthenticating,
     attemptSetEmailOnForm,
   };
 };

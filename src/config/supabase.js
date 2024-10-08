@@ -1,3 +1,4 @@
+// src/config/supabase.js
 export default {
   credentials: {
     supabaseUrl: "https://jbagkxihpvngdwahkoub.supabase.co",

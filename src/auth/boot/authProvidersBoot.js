@@ -1,3 +1,4 @@
+// src/auth/boot/authProvidersBoot.js
 import { boot } from "quasar/wrappers";
 import { AuthPlugin } from "@vueauth/core";
 import supabaseConfig from "app/config/supabase";
@@ -17,7 +18,7 @@ import {
 } from "@vueauth/supabase";
 
 export default boot(({ app }) => {
-  app.use(SupabasePlugin, supabaseConfig); // Be sure to update config/supabase to configure your app!
+  app.use(SupabasePlugin, supabaseConfig);
 
   app.use(AuthPlugin, {
     default: "supabase",
