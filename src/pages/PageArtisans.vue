@@ -6,7 +6,13 @@
     <page-body>
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
         <!-- Search Bar -->
-        <q-input v-model="searchTerm" label="Search..." filled clearable />
+        <q-input
+          v-model="searchTerm"
+          label="Search..."
+          filled
+          clearable
+          active-color="secondary"
+        />
 
         <!-- Dropdowns for filters -->
         <q-select

@@ -39,7 +39,7 @@ const {
       label="login"
       outline=""
       unelevated
-      @click="onLoginClicked"
+      @click="onTwitterLogin"
     />
   </q-card>
 </template>
