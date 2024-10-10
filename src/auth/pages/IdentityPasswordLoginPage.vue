@@ -1,6 +1,6 @@
 <script setup>
 import AuthLoginCard from "src/auth/components/LoginCard.vue";
-import { useAuthState } from "@vueauth/core";
+import { useAuthState } from "src/auth/libs/vueauth/core";
 import { onMounted } from "vue"; // This import looks inactive. are we good?
 import useLogin from "src/auth/composables/useLogin"; // Import your login composable
 

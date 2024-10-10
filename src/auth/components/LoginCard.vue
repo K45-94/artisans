@@ -1,5 +1,4 @@
 <script setup>
-import { QCard, QCardSection, QBtn } from "quasar";
 import AuthLoginForm from "src/auth/components/forms/LoginForm.vue";
 import useLogin from "auth/composables/useLogin";
 import AuthErrorsBanner from "./ErrorsBanner.vue";

@@ -1,0 +1,200 @@
+we have this file.
+'src\auth\libs\vueauth\quasar-app-extension-auth\src\templates\src\auth\boot\registerAuthRoutes.js'
+
+'import { boot } from 'quasar/wrappers'
+
+export default boot(({ router }) => {
+  router.addRoute('/', {
+    name: 'auth.register',
+    path: '/register',
+    meta: { unauthOnly: true },
+    component: () => import('src/auth/pages/IdentityPasswordRegisterPage.vue')
+  })
+
+  router.addRoute('/', {
+    name: 'auth.login',
+    path: '/login',
+    meta: { unauthOnly: true },
+    component: () => import('src/auth/pages/IdentityPasswordLoginPage.vue')
+  })
+
+  router.addRoute('/', {
+    name: 'auth.requestPasswordReset',
+    path: '/forgot-password',
+    meta: { unauthOnly: true },
+    component: () => import('src/auth/pages/PasswordResetRequestViaEmailPage.vue')
+  })
+
+  router.addRoute('/', {
+    name: 'auth.resetPassword',
+    path: '/password-reset',
+    meta: { unauthOnly: true },
+    component: () => import('src/auth/pages/PasswordResetViaEmailPage.vue')
+  })
+
+  router.addRoute('/', {
+    path: '/dashboard',
+    component: () => import('layouts/AuthenticatedLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'dashboard',
+        component: () => import('src/pages/UserDashboard.vue'),
+        meta: { authOnly: true }
+      }
+    ]
+  })
+})
+'
+
+
+These are our routes.
+
+'const routes = [
+  {
+    path: "/",
+    component: () => import("src/layouts/PlumLayout.vue"),
+    children: [
+      {
+        path: "",
+        redirect: "/artisans",
+      },
+
+      {
+        path: "/artisans",
+        component: () => import("src/pages/PageArtisans.vue"),
+      },
+      {
+        path: "profile", // Relative path without leading slash
+        component: () => import("src/pages/Profile/PageProfile.vue"),
+        children: [
+          {
+            path: "settings", // Relative path without leading slash
+            component: () => import("src/pages/Profile/PageSettings.vue"),
+            children: [
+              {
+                path: "themes", // Relative path without leading slash
+                component: () => import("src/pages/Profile/PageThemes.vue"),
+              },
+              {
+                path: "supportplumartisans", // Relative path without leading slash
+                component: () =>
+                  import("src/pages/Profile/PageSupportPlumArtisans.vue"),
+                children: [
+                  {
+                    path: "agentapp", // Relative path without leading slash
+                    component: () =>
+                      import("src/pages/Profile/PageAgentApplicationForm.vue"),
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    path: "/:catchAll(.*)*", // Catch-all route for 404 errors
+    component: () => import("pages/Error404.vue"),
+  },
+];
+
+export default routes;
+'
+
+'src\router\routes.js'
+
+and we have
+
+'src\auth\boot\registerAuthRoutes.js'
+
+'// src/boot/registerAuthRoutes.js
+import { boot } from "quasar/wrappers";
+
+export default boot(({ router }) => {
+  console.log("Registering auth routes");
+  router.addRoute({
+    path: "/register",
+    name: "auth.register",
+    meta: { unauthOnly: true },
+    component: () => import("src/auth/pages/IdentityPasswordRegisterPage.vue"),
+  });
+
+  router.addRoute({
+    path: "/login",
+    name: "auth.login",
+    meta: { unauthOnly: true },
+    component: () => import("src/auth/pages/IdentityPasswordLoginPage.vue"),
+  });
+
+  router.addRoute({
+    path: "/forgot-password",
+    name: "auth.requestPasswordReset",
+    meta: { unauthOnly: true },
+    component: () =>
+      import("src/auth/pages/PasswordResetRequestViaEmailPage.vue"),
+  });
+
+  router.addRoute({
+    path: "/password-reset",
+    name: "auth.resetPassword",
+    meta: { unauthOnly: true },
+    component: () => import("src/auth/pages/PasswordResetViaEmailPage.vue"),
+  });
+
+  // Main layout route with children
+  router.addRoute({
+    path: "/",
+    component: () => import("src/layouts/PlumLayout.vue"),
+    children: [
+      {
+        path: "/artisans",
+        name: "artisans",
+        meta: { authOnly: true },
+        component: () => import("src/pages/PageArtisans.vue"),
+      },
+      {
+        path: "/profile",
+        meta: { authOnly: true },
+        component: () => import("src/pages/Profile/PageProfile.vue"),
+        children: [
+          {
+            path: "/profile/settings",
+            meta: { authOnly: true },
+            component: () => import("src/pages/Profile/PageSettings.vue"),
+            children: [
+              {
+                path: "/profile/settings/themes",
+                meta: { authOnly: true },
+                component: () => import("src/pages/Profile/PageThemes.vue"),
+              },
+              {
+                path: "/profile/settings/supportplumartisans",
+                meta: { authOnly: true },
+                component: () =>
+                  import("src/pages/Profile/PageSupportPlumArtisans.vue"),
+                children: [
+                  {
+                    path: "/profile/settings/agentapp",
+                    meta: { authOnly: true },
+                    component: () =>
+                      import("src/pages/Profile/PageAgentApplicationForm.vue"),
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+
+  // Catch-all route for 404
+  router.addRoute({
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/Error404.vue"),
+  });
+});
+'
