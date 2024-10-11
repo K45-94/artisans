@@ -1,4 +1,4 @@
-import { useIdentityPasswordLogout } from "src/auth/libs/vueauth/core";
+import { useIdentityPasswordLogout } from "@vueauth/core";
 import { useRouter } from "vue-router";
 
 export default () => {

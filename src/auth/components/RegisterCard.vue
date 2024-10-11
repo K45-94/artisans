@@ -1,4 +1,5 @@
 <script setup>
+import { QCard, QCardSection, QBtn } from "quasar";
 import useRegister from "auth/composables/useRegister";
 import AuthRegisterForm from "src/auth/components/forms/RegisterForm.vue";
 import AuthErrorsBanner from "./ErrorsBanner.vue";

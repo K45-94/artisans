@@ -1,9 +1,6 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import {
-  useIdentityPasswordRegister,
-  useAuthState,
-} from "src/auth/libs/vueauth/core";
+import { useIdentityPasswordRegister, useAuthState } from "@vueauth/core";
 import { supabase } from "../../supabaseClient";
 
 export default () => {
