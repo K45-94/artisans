@@ -32,14 +32,23 @@ export default () => {
 
   async function onTwitterLogin() {
     resetErrors();
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "twitter",
-      options: {
-        redirectTo: "https://plum-cl.netlify.app/#/artisans", // This is the URL where the user will be redirected after successful login.
-      },
-    });
-    if (error) {
-      console.error("Twitter login error:", error);
+
+    console.log("Starting Twitter login..."); // Debugging statement
+    try {
+      const { error } = await supabase.auth.signIn({
+        provider: "twitter",
+        options: {
+          redirectTo: "https://plum-cl.netlify.app/#/artisans", // Add the correct redirect URL
+        },
+      });
+
+      if (error) {
+        console.error("Twitter login error:", error);
+      } else {
+        console.log("Twitter login initiated successfully"); // Debugging statement
+      }
+    } catch (error) {
+      console.error("Exception in Twitter login:", error);
     }
   }
 
