@@ -15,7 +15,7 @@
     "@quasar/cli": "^2.4.1",
     "@quasar/extras": "^1.16.12",
     "@rive-app/canvas": "^2.21.5",
-    "@supabase/supabase-js": "^1.35.7",
+    "@supabase/supabase-js": "^2.43.4",
     "@vueauth/supabase": "^1.0.0-alpha.20",
     "axios": "^1.7.3",
     "core-js": "^3.38.0",
