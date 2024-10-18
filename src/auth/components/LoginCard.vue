@@ -1,5 +1,5 @@
+// src/auth/components/LoginCard.vue
 <script setup>
-import { QCard, QCardSection, QBtn } from "quasar";
 import AuthLoginForm from "src/auth/components/forms/LoginForm.vue";
 import useLogin from "auth/composables/useLogin";
 import AuthErrorsBanner from "./ErrorsBanner.vue";
@@ -9,8 +9,8 @@ const {
   form,
   loading,
   errors,
-  hasErrors,
   validationErrors,
+  hasErrors,
   hasValidationErrors,
 } = useLogin();
 </script>
@@ -39,7 +39,7 @@ const {
       label="login"
       outline=""
       unelevated
-      @click="onTwitterLogin"
+      @click="onLoginClicked"
     />
   </q-card>
 </template>

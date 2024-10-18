@@ -1,7 +1,8 @@
+// src/auth/pages/IdentityPasswordLoginPage.vue
 <script setup>
 import AuthLoginCard from "src/auth/components/LoginCard.vue";
 import { useAuthState } from "@vueauth/core";
-import { onMounted } from "vue"; // Log lifecycle hook usage (currently not used)
+import { onMounted } from "vue";
 import useLogin from "src/auth/composables/useLogin";
 
 // Destructure isAuthenticated and ensure it’s reactive
