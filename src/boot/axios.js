@@ -1,3 +1,4 @@
+// src/boot/axios.js
 import { boot } from "quasar/wrappers";
 import axios from "axios";
 

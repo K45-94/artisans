@@ -53,3 +53,5 @@ export default {
   transition: opacity 0.3s ease;
 }
 </style>
+
+// src/components/PagePlumComponent/PageHeader.vue

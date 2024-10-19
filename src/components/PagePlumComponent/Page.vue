@@ -49,3 +49,5 @@ export default {
   },
 };
 </script>
+
+// src/components/PagePlumComponent/Page.vue
