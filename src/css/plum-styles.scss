@@ -90,5 +90,20 @@
 }
 
 .text-brand {
-  color: var(--q-secondary);
+  color: var(--q-info);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    90.13deg,
+    #33ac51,
+    #a3b4a7,
+    #6be289,
+    #a3b4a7,
+    #33ac51
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }

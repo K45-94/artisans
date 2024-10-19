@@ -1,3 +1,4 @@
+// src/auth/composables/useRegister.js
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useIdentityPasswordRegister, useAuthState } from "@vueauth/core";

@@ -1,5 +1,5 @@
+// src/auth/components/LoginCard.vue
 <script setup>
-import { QCard, QCardSection, QBtn } from "quasar";
 import AuthLoginForm from "src/auth/components/forms/LoginForm.vue";
 import useLogin from "auth/composables/useLogin";
 import AuthErrorsBanner from "./ErrorsBanner.vue";
@@ -18,26 +18,21 @@ const {
 <template>
   <q-card class="log-card" flat>
     <q-card-section class="text-center text-gradient">
-      <!-- Login Form -->
       <AuthLoginForm
         v-model:email="form.email"
         v-model:password="form.password"
         :validation-errors="validationErrors"
       />
-
-      <!-- Errors -->
       <div v-if="hasErrors">
         <AuthErrorsBanner :errors="errors" />
       </div>
     </q-card-section>
-
-    <!-- Login Button -->
     <q-btn
       :loading="loading"
-      class="full-width"
+      class="full-width login-btn"
       color="secondary"
-      label="login"
-      outline=""
+      label="Login"
+      outline
       unelevated
       @click="onLoginClicked"
     />
@@ -47,5 +42,18 @@ const {
 <style lang="scss">
 .log-card {
   background: var(--primary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(202, 0, 0);
+}
+
+.login-btn {
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--q-color-secondary);
+  color: white;
 }
 </style>

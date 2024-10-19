@@ -2,6 +2,7 @@
   <page>
     <page-header>
       <template #title> PROFILE </template>
+
       <template #logout-button v-if="isAuthenticated">
         <LogoutButton label="logout" flat color="secondary" />
       </template>
@@ -44,7 +45,7 @@
             <q-list class="full-width">
               <q-item to="/profile/settings" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary" icon="eva-settings-2"></q-avatar>
+                  <q-avatar color="secondary" icon="eva-settings-2"></q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center">
@@ -54,6 +55,29 @@
                 <q-item-section class="col-4">
                   <q-btn
                     to="/profile/settings"
+                    class="absolute-right"
+                    icon="eva-arrow-ios-forward-outline"
+                    flat
+                    dense
+                    color="secondary"
+                  />
+                </q-item-section>
+              </q-item>
+              <q-item to="/profile/payments" clickable>
+                <q-item-section avatar class="col-4">
+                  <q-avatar
+                    color="info"
+                    icon="eva-credit-card-outline"
+                  ></q-avatar>
+                </q-item-section>
+                <q-item-section class="col-4">
+                  <q-item-label class="text-bold absolute-center">
+                    Payments
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section class="col-4">
+                  <q-btn
+                    to="/profile/payments"
                     class="absolute-right"
                     icon="eva-arrow-ios-forward-outline"
                     flat
