@@ -16,7 +16,7 @@ const {
 </script>
 
 <template>
-  <q-card class="log-card" flat>
+  <q-card class="log-card">
     <q-card-section class="text-center text-gradient">
       <AuthLoginForm
         v-model:email="form.email"
@@ -43,8 +43,8 @@ const {
 .log-card {
   background: var(--primary-bg);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgb(202, 0, 0);
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgb(88, 0, 202);
 }
 
 .login-btn {

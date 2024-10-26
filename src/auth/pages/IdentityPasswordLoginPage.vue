@@ -69,8 +69,8 @@ onMounted(() => {
 
 .login-container {
   background: var(--primary-bg);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgb(211, 197, 3);
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgb(38, 211, 3);
   width: 99%;
 }
 

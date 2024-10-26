@@ -238,11 +238,9 @@
     </page-body>
   </page>
 </template>
-
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import supabase from "src/config/supabase";
-
 import { useAuthState } from "@vueauth/core";
 
 // Access the authentication state to check if the user is authenticated
@@ -259,7 +257,11 @@ const loading = ref(true); // Loading state
 const artisans = ref([]);
 const groups = ref([]);
 const shops = ref([]);
+const craftOptions = ref([]);
+const countyOptions = ref([]);
+const constituencyOptions = ref([]);
 
+// Fetch functions
 async function fetchArtisans() {
   const { data, error } = await supabase.from("artisans").select("*");
   if (error) {
@@ -287,10 +289,53 @@ async function fetchShops() {
   }
 }
 
+async function fetchCraftOptions() {
+  const { data, error } = await supabase.from("crafts").select("*");
+  if (error) {
+    console.error("Error fetching craft options:", error);
+  } else {
+    craftOptions.value = data.map((craft) => ({
+      label: craft.name,
+      value: craft.name,
+    }));
+  }
+}
+
+async function fetchCountyOptions() {
+  const { data, error } = await supabase.from("counties").select("*");
+  if (error) {
+    console.error("Error fetching county options:", error);
+  } else {
+    countyOptions.value = data.map((county) => ({
+      label: county.name,
+      value: county.name,
+    }));
+  }
+}
+
+async function fetchConstituencyOptions() {
+  const { data, error } = await supabase.from("constituencies").select("*");
+  if (error) {
+    console.error("Error fetching constituency options:", error);
+  } else {
+    constituencyOptions.value = data.map((constituency) => ({
+      label: constituency.name,
+      value: constituency.name,
+    }));
+  }
+}
+
 // Call the fetch functions on component mount
 onMounted(async () => {
   loading.value = true;
-  await Promise.all([fetchArtisans(), fetchGroups(), fetchShops()]);
+  await Promise.all([
+    fetchArtisans(),
+    fetchGroups(),
+    fetchShops(),
+    fetchCraftOptions(),
+    fetchCountyOptions(),
+    fetchConstituencyOptions(),
+  ]);
   loading.value = false;
 });
 
@@ -311,9 +356,10 @@ const filteredArtisans = computed(() => {
 const filteredGroups = computed(() => {
   return groups.value.filter((group) => {
     return (
-      (group.location === selectedCounty.value || !selectedCounty.value) &&
-      (group.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
-        group.location.toLowerCase().includes(searchTerm.value.toLowerCase()))
+      (group.county === selectedCounty.value || !selectedCounty.value) &&
+      (group.constituency === selectedConstituency.value ||
+        !selectedConstituency.value) &&
+      group.name.toLowerCase().includes(searchTerm.value.toLowerCase())
     );
   });
 });
@@ -321,27 +367,31 @@ const filteredGroups = computed(() => {
 const filteredShops = computed(() => {
   return shops.value.filter((shop) => {
     return (
-      shop.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
-      shop.description.toLowerCase().includes(searchTerm.value.toLowerCase())
+      (shop.county === selectedCounty.value || !selectedCounty.value) &&
+      (shop.constituency === selectedConstituency.value ||
+        !selectedConstituency.value) &&
+      shop.name.toLowerCase().includes(searchTerm.value.toLowerCase())
     );
   });
 });
 
-// Contact revealing and job application logic
-function revealContact(artisan) {
+// Reveal contact function
+const revealContact = (artisan) => {
   artisan.showContact = !artisan.showContact;
-}
+};
 
-function revealGroupContact(group) {
+const revealGroupContact = (group) => {
   group.showContact = !group.showContact;
-}
+};
 
-function toggleMembers(group) {
+// Toggle members in group
+const toggleMembers = (group) => {
   group.showMembers = !group.showMembers;
-}
+};
 
-function applyForJob(job) {
-  // Application logic here, e.g., navigate to a form or contact shop owner
+// Apply for job function
+const applyForJob = (job) => {
   console.log("Applying for job:", job);
-}
+  // Implement job application logic here
+};
 </script>
