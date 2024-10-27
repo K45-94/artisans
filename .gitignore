@@ -34,3 +34,7 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+.env
+config/supabase.js
+src/supabaseClient.js
