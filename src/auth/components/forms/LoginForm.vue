@@ -1,6 +1,4 @@
 <script setup>
-import { QInput, QForm } from "quasar";
-
 defineProps({
   email: {
     required: true,
