@@ -1,4 +1,3 @@
-// src/plumStore/index.js
 import { reactive } from "vue";
 
 const state = reactive({
@@ -15,24 +14,19 @@ const state = reactive({
     },
   ],
   usePageTransition: false,
-  theme: "bright-background",
+  theme: "dark-blue", // Default theme
   textColor: "", // Default text color
-  textColorOptions: {
-    "bright-background": ["black", "green"],
-    "dark-background": ["white", "green"],
-  },
+  textColorOptions: {},
   craftOptions: [],
   locations: [],
   artisans: [],
   groups: [],
-
   shops: [],
 });
 
 const store = {
   state,
 
-  // Set user details
   setUserDetails(userDetails) {
     this.state.user.displayName = userDetails.displayName;
     this.state.user.username = userDetails.username;
@@ -57,4 +51,5 @@ const store = {
     this.state.isAuthenticated = isAuthenticated;
   },
 };
+
 export default store;

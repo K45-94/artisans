@@ -6,7 +6,7 @@
   >
     <q-page-container>
       <q-footer class="small-screen-only">
-        <q-tabs class="row text-primary" active-color="secondary">
+        <q-tabs class="row">
           <q-route-tab
             v-for="navItem in store.state.navItems"
             :key="navItem.root"

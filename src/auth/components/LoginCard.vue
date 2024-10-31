@@ -44,7 +44,7 @@ const {
   background: var(--primary-bg);
   padding: 2rem;
   border-radius: 18px;
-  box-shadow: 0 4px 12px rgb(88, 0, 202);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .login-btn {

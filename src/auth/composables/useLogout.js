@@ -1,3 +1,4 @@
+// src/auth/composables/useLogout.js
 import { useIdentityPasswordLogout } from "@vueauth/core";
 import { useRouter } from "vue-router";
 

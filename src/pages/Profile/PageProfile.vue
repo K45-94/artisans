@@ -4,7 +4,7 @@
       <template #title> PROFILE </template>
 
       <template #logout-button v-if="isAuthenticated">
-        <LogoutButton label="logout" flat color="secondary" />
+        <LogoutButton label="logout" flat />
       </template>
     </page-header>
     <page-body>
@@ -13,7 +13,7 @@
           <div class="col-12 col-sm-8">
             <q-card class="q-mb-md" flat v-if="isAuthenticated">
               <q-card-section>
-                <div class="text-h6">Profile Details</div>
+                <q-btn flat label="Profile Details" class="q-mt-md text-h6" />
               </q-card-section>
               <q-card-section>
                 <q-form @submit="updateProfile">
@@ -36,7 +36,7 @@
                   <q-btn
                     type="submit"
                     label="Update Profile"
-                    color="secondary"
+                    outline
                     class="q-mt-md"
                   />
                 </q-form>

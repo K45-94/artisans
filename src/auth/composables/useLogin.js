@@ -38,7 +38,7 @@ export default () => {
       const { error } = await supabase.auth.signIn({
         provider: "twitter",
         options: {
-          redirectTo: "https://plum-cl.netlify.app/#/artisans", // Add the correct redirect URL
+          redirectTo: "https://plum-cl.netlify.app/#/artisans", // Ensure this is correct
         },
       });
 

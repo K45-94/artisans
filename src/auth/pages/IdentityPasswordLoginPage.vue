@@ -1,3 +1,4 @@
+// src/auth/pages/IdentityPasswordLoginPage.vue
 <script setup>
 import AuthLoginCard from "src/auth/components/LoginCard.vue";
 import { useAuthState } from "@vueauth/core";

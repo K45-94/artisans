@@ -1,3 +1,4 @@
+<!--src/components/PagePlumComponent/Page.vue-->
 <template>
   <div class="page absolute-top fit shadow-10">
     <div
@@ -49,5 +50,3 @@ export default {
   },
 };
 </script>
-
-// src/components/PagePlumComponent/Page.vue

@@ -7,29 +7,21 @@
       <template #title>Theme switcher</template>
     </page-header>
     <page-body>
-      <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg">
-        <div class="q-col-gutter-lg" :style="{ color: selectedTextColor }">
-          <div>
-            <p>Change background colour</p>
-            <q-option-group
-              type="radio"
-              v-model="themes"
-              :options="select"
-              color="secondary"
-            />
-            <q-space />
-            <q-option-group
-              type="radio"
-              v-model="selectedTextColor"
-              :options="
-                currentTextColorOptions.map((color) => ({
-                  label: color,
-                  value: color,
-                }))
-              "
-              color="secondary"
-            />
-          </div>
+      <div
+        class="q-pt-lg q-pb-md q-pl-lg q-pr-lg"
+        :style="{ color: selectedTextColor }"
+      >
+        <div class="grid-btn-group">
+          <q-btn
+            v-for="theme in themesList"
+            :key="theme.name"
+            @click="applyTheme(theme)"
+            class="theme-btn"
+            :style="{
+              backgroundColor: theme.backgroundColor,
+              color: theme.textColor,
+            }"
+          ></q-btn>
         </div>
       </div>
       <div class="page-body-spacer-footer"></div>
@@ -38,77 +30,70 @@
 </template>
 
 <script>
-import { ref, computed, watch, defineComponent } from "vue";
-import { QOptionGroup, QSlider, QSpace, QIcon } from "quasar";
+import { ref, reactive } from "vue";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
 import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
 import store from "src/plumStore";
 
-export default defineComponent({
+export default {
   components: {
     Page,
     PageHeader,
     PageHeaderButtonBackLeft,
-    QOptionGroup,
   },
   name: "PageThemes",
   setup() {
-    const themes = ref("op1");
     const backgroundClass = ref("");
-    const textModel = ref(2); // Default to medium size
-    const fontWeightModel = ref(2);
     const selectedTextColor = ref(store.state.textColor);
 
-    const select = [
-      { label: "Bright background", value: "op1" },
-      { label: "Dark background", value: "op3" },
-    ];
+    const themesList = reactive([
+      {
+        name: "Bright Green",
+        backgroundColor: "#b2ff66",
+        textColor: "#000000",
+      },
+      { name: "Dark Green", backgroundColor: "#005500", textColor: "#db2777" },
+      { name: "Bright Blue", backgroundColor: "#66b3ff", textColor: "#000000" },
+      { name: "Dark Blue", backgroundColor: "#000055", textColor: "#ffffff" },
+      { name: "Bright Red", backgroundColor: "#ff6666", textColor: "#000000" },
+      { name: "Dark Red", backgroundColor: "#550000", textColor: "#ffffff" },
+      {
+        name: "Bright Yellow",
+        backgroundColor: "#ffff66",
+        textColor: "#000000",
+      },
+    ]);
 
-    const currentTextColorOptions = computed(() => {
-      return store.state.textColorOptions[backgroundClass.value] || [];
-    });
-
-    // Watch for changes in themes and update the background class and text color options
-    watch(themes, (newVal) => {
-      if (newVal === "op1") {
-        backgroundClass.value = "bright-background";
-        store.state.theme = "bright-background";
-      } else if (newVal === "op3") {
-        backgroundClass.value = "dark-background";
-        store.state.theme = "dark-background";
-      }
-      selectedTextColor.value = currentTextColorOptions.value[0];
+    const applyTheme = (theme) => {
+      backgroundClass.value = theme.name.toLowerCase().replace(/ /g, "-");
+      selectedTextColor.value = theme.textColor;
+      store.state.theme = backgroundClass.value;
       store.state.textColor = selectedTextColor.value;
-    });
-
-    // Watcher for selectedTextColor to update the store
-    watch(selectedTextColor, (newColor) => {
-      store.state.textColor = newColor;
-    });
-
-    // Watcher for textModel to adjust text size
-    watch(textModel, (newSize) => {
-      const sizeClasses = ["sm", "md", "lg", "xl"];
-      const sizeClass = sizeClasses[newSize] || "md"; // Default to 'md'
-      document.documentElement.setAttribute("data-text-sizes", sizeClass);
-    });
+    };
 
     return {
-      themes,
-      select,
-      textModel,
-      fontWeightModel,
+      themesList,
+      applyTheme,
       backgroundClass,
       selectedTextColor,
-      currentTextColorOptions,
     };
   },
-});
+};
 </script>
 
 <style scoped>
-.q-radio {
-  margin-right: 10px;
+.grid-btn-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* Space between buttons */
+}
+
+.theme-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px; /* Adjust height as needed */
+  border-radius: 5px;
 }
 </style>

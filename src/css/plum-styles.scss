@@ -1,54 +1,89 @@
 :root {
   --primary-bg: var(--q-color-primary);
   --secondary-bg: var(--q-color-secondary);
-}
-.bright-background {
-  background-color: #ffffff !important;
-  --primary-bg: #ffffff;
-  --secondary-bg: #180b0b;
+  --shadow-color: var(--q-shadow-color);
 }
 
-.dim-background {
-  background-color: #bebebe !important;
-  --primary-bg: #bebebe;
-  --secondary-bg: #0b160b;
+.bright-green {
+  background-color: #b2ff66 !important;
+  --primary-bg: #b2ff66;
+  --secondary-bg: #180b0b; // Update this as needed
+  --shadow-color: rgba(0, 128, 0, 0.5);
 }
 
-.dark-background {
-  background-color: #130f09 !important;
-  --primary-bg: #130f09;
-  --secondary-bg: #bbbbbb;
+.dark-green {
+  background-color: #005500 !important;
+  --primary-bg: #005500;
+  --secondary-bg: #bbbbbb; // Update this as needed
+  --shadow-color: rgba(0, 55, 0, 0.5);
+}
+
+.bright-blue {
+  background-color: #66b3ff !important;
+  --primary-bg: #66b3ff;
+  --secondary-bg: #180b0b; // Update this as needed
+  --shadow-color: rgba(0, 0, 128, 0.5);
+}
+
+.dark-blue {
+  background-color: #000055 !important;
+  --primary-bg: #000055;
+  --secondary-bg: #bbbbbb; // Update this as needed
+  --shadow-color: rgba(0, 0, 55, 0.5);
+}
+
+.bright-red {
+  background-color: #ff6666 !important;
+  --primary-bg: #ff6666;
+  --secondary-bg: #180b0b; // Update this as needed
+  --shadow-color: rgba(128, 0, 0, 0.5);
+}
+
+.dark-red {
+  background-color: #550000 !important;
+  --primary-bg: #550000;
+  --secondary-bg: #bbbbbb; // Update this as needed
+  --shadow-color: rgba(55, 0, 0, 0.5);
+}
+
+.bright-yellow {
+  background-color: #ffff66 !important;
+  --primary-bg: #ffff66;
+  --secondary-bg: #180b0b; // Update this as needed
+  --shadow-color: rgba(128, 128, 0, 0.5);
 }
 
 // Component-specific styles
-
 .q-tab-panel,
-.q-form {
-  background-color: var(--primary-bg);
-}
-.q-input {
-  background-color: var(--primary-bg);
-}
-.q-field {
-  background-color: var(--primary-bg);
-}
-.q-portal {
-  background-color: var(--primary-bg);
-}
-
-.q-field__control {
-  -webkit-text-fill-color: var(--secondary-bg);
-}
-.q-card {
-  background-color: var(--primary-bg);
-}
+.q-form,
+.q-input,
+.q-field,
+.q-portal,
+.q-card,
 .plum-send-money-form-component {
   background-color: var(--primary-bg);
 }
-
 .q-tab-panels {
   background-color: var(--secondary-bg);
 }
+.q-field__control,
+.q-btn__content,
+.q-tab__label,
+.q-item__label,
+.q-input,
+.q-toggle__label,
+.q-icon {
+  -webkit-text-fill-color: var(--secondary-bg);
+}
+
+.q-placeholder {
+  -webkit-text-fill-color: var(--primary-bg);
+}
+.q-field__native,
+.q-field__prefix {
+  -webkit-text-fill-color: var(--accent-bg);
+}
+
 .table-title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -84,9 +119,6 @@
 
 .custom-table tbody tr:hover {
   background-color: #f9f9f9;
-}
-.q-input {
-  text-decoration-color: var(--secondary-bg);
 }
 
 .text-brand {
