@@ -1,3 +1,4 @@
+<!-- src/components/PagePlumComponent/PageHeader.vue -->
 <template>
   <header
     :class="[
@@ -5,7 +6,7 @@
       { 'fixed-top': !isScrolling, 'hide-header': isScrolling },
     ]"
   >
-    <div class="q-toolbar row no-wrap items-center" active-color="secondary">
+    <div class="q-toolbar row no-wrap items-center">
       <slot name="button-left" />
       <div
         class="page-header-title q-toolbar__title ellipsis q-pl-none q-ml-md text-weight-light text-center text-body1"
@@ -53,5 +54,3 @@ export default {
   transition: opacity 0.3s ease;
 }
 </style>
-
-// src/components/PagePlumComponent/PageHeader.vue

@@ -13,7 +13,7 @@
             <q-list class="full-width">
               <q-item to="/profile/payments/mpesawallet/sendmpesa" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> SM </q-avatar>
+                  <q-avatar> SM </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"
@@ -34,7 +34,7 @@
               <q-space class="q-pa-sm" />
               <q-item to="/profile/payments/mpesawallet/lipanampesa" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> LM </q-avatar>
+                  <q-avatar> LM </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"
@@ -55,7 +55,7 @@
               <q-space class="q-pa-sm" />
               <q-item to="" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> WC </q-avatar>
+                  <q-avatar> WC </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"
@@ -76,7 +76,7 @@
               <q-space class="q-pa-sm" />
               <q-item to="" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> B </q-avatar>
+                  <q-avatar> B </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"

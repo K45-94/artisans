@@ -4,7 +4,7 @@
       <template #title> PROFILE </template>
 
       <template #logout-button v-if="isAuthenticated">
-        <LogoutButton label="logout" flat color="secondary" />
+        <LogoutButton label="logout" flat />
       </template>
     </page-header>
     <page-body>
@@ -13,7 +13,7 @@
           <div class="col-12 col-sm-8">
             <q-card class="q-mb-md" flat v-if="isAuthenticated">
               <q-card-section>
-                <div class="text-h6">Profile Details</div>
+                <q-btn class="text-h6" flat>Profile Details</q-btn>
               </q-card-section>
               <q-card-section>
                 <q-form @submit="updateProfile">
@@ -33,19 +33,14 @@
                     type="text"
                     class=""
                   />
-                  <q-btn
-                    type="submit"
-                    label="Update Profile"
-                    color="secondary"
-                    class="q-mt-md"
-                  />
+                  <q-btn type="submit" label="Update Profile" class="q-mt-md" />
                 </q-form>
               </q-card-section>
             </q-card>
             <q-list class="full-width">
               <q-item to="/profile/settings" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="secondary" icon="eva-settings-2"></q-avatar>
+                  <q-avatar icon="eva-settings-2"></q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center">
@@ -65,10 +60,7 @@
               </q-item>
               <q-item to="/profile/payments" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar
-                    color="info"
-                    icon="eva-credit-card-outline"
-                  ></q-avatar>
+                  <q-avatar icon="eva-credit-card-outline"></q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center">

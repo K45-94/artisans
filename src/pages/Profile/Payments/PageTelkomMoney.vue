@@ -16,7 +16,7 @@
                 clickable
               >
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> TK </q-avatar>
+                  <q-avatar> TK </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"
@@ -37,7 +37,7 @@
               <q-space class="q-pa-sm" />
               <q-item to="" clickable>
                 <q-item-section avatar class="col-2">
-                  <q-avatar color="primary"> WC </q-avatar>
+                  <q-avatar> WC </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-8">
                   <q-item-label class="text-bold absolute-center"
@@ -58,7 +58,7 @@
               <q-space class="q-pa-sm" />
               <q-item to="" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> LT </q-avatar>
+                  <q-avatar> LT </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"
@@ -79,7 +79,7 @@
               <q-space class="q-pa-sm" />
               <q-item to="" clickable>
                 <q-item-section avatar class="col-4">
-                  <q-avatar color="primary"> B </q-avatar>
+                  <q-avatar> B </q-avatar>
                 </q-item-section>
                 <q-item-section class="col-4">
                   <q-item-label class="text-bold absolute-center"
