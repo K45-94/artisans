@@ -2,11 +2,11 @@
   <q-btn
     @click="useGoBack"
     icon="chevron_left"
-    color="secondary"
     flat
     rounded
     dense
     no-caps
+    class="text-gradient"
   />
 </template>
 

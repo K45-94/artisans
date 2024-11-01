@@ -1,7 +1,6 @@
 <template>
   <q-btn
     icon-right="chevron_right"
-    color="secondary"
     flat
     rounded
     dense
