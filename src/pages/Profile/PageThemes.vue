@@ -57,6 +57,11 @@ export default {
       { name: "Dark Green", backgroundColor: "#005500", textColor: "#db2777" },
       { name: "Bright Blue", backgroundColor: "#66b3ff", textColor: "#000000" },
       { name: "Dark Blue", backgroundColor: "#000055", textColor: "#ffffff" },
+      {
+        name: "Bright White",
+        backgroundColor: "#ffffff",
+        textColor: "#000000",
+      },
       { name: "Bright Red", backgroundColor: "#ff6666", textColor: "#000000" },
       { name: "Dark Red", backgroundColor: "#550000", textColor: "#ffffff" },
       {

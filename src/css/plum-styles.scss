@@ -36,6 +36,8 @@
   --primary-bg: #b2ff66;
   --secondary-bg: #180b0b;
   --accent-bg: #180b0b;
+
+  --login-bg: #091208;
   --shadow-color: rgba(0, 128, 0, 0.5);
   --gradient-color-1: #ffffff;
   --gradient-color-2: #aa4d4d;
@@ -48,8 +50,10 @@
 .dark-green {
   background-color: #020c02 !important;
   --primary-bg: #020c02;
-  --secondary-bg: #ffffff;
-  --accent-bg: #ffffff;
+  --secondary-bg: #bbbbbb;
+  --accent-bg: #bbbbbb;
+
+  --login-bg: #111a11;
   --shadow-color: rgba(0, 55, 0, 0.712);
   --gradient-color-1: #00040a;
   --gradient-color-2: #99ccff;
@@ -64,6 +68,8 @@
   --primary-bg: #66b3ff;
   --secondary-bg: #180b0b;
   --accent-bg: #180b0b;
+
+  --login-bg: #2081b1;
   --shadow-color: rgba(0, 0, 128, 0.5);
   --gradient-color-1: #000000;
   --gradient-color-2: #ffff99;
@@ -78,6 +84,7 @@
   --primary-bg: #000055;
   --secondary-bg: #bbbbbb;
   --accent-bg: #bbbbbb;
+  --login-bg: #2b0249;
   --shadow-color: rgba(0, 0, 55, 0.5);
   --gradient-color-1: #00ff04;
   --gradient-color-2: #4a6b4a;
@@ -92,6 +99,8 @@
   --primary-bg: #ff6666;
   --secondary-bg: #180b0b;
   --accent-bg: #180b0b;
+
+  --login-bg: #ffc2c2;
   --shadow-color: rgba(128, 0, 0, 0.5);
   --gradient-color-1: #000000;
   --gradient-color-2: #a3b4a7;
@@ -106,6 +115,7 @@
   --primary-bg: #550000;
   --secondary-bg: #bbbbbb;
   --accent-bg: #bbbbbb;
+  --login-bg: #330202;
   --shadow-color: rgba(55, 0, 0, 0.5);
   --gradient-color-1: #ebebf3;
   --gradient-color-2: #9191d9;
@@ -120,11 +130,28 @@
   --primary-bg: #ffff66;
   --secondary-bg: #180b0b;
   --accent-bg: #180b0b;
+  --login-bg: #5250a5;
   --shadow-color: rgba(128, 128, 0, 0.5);
   --gradient-color-1: #00040a;
   --gradient-color-2: #99ccff;
   --gradient-color-3: #00040a;
   --gradient-color-4: #99ccff;
+  --gradient-color-5: #000000;
+}
+
+/* Bright White Theme */
+.bright-white {
+  background-color: #ffffff !important;
+  --primary-bg: #ffffff;
+  --secondary-bg: #000000;
+  --accent-bg: #000000;
+
+  --login-bg: #9c9c9c;
+  --shadow-color: rgba(128, 128, 0, 0.5);
+  --gradient-color-1: #00040a;
+  --gradient-color-2: #ffffff;
+  --gradient-color-3: #000000;
+  --gradient-color-4: #ffffff;
   --gradient-color-5: #000000;
 }
 
