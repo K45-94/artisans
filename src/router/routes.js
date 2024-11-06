@@ -1,4 +1,3 @@
-// src/router/routes.js
 const routes = [
   {
     path: "/",
@@ -8,30 +7,53 @@ const routes = [
         path: "",
         redirect: "/artisans",
       },
-
       {
-        path: "/artisans",
+        path: "artisans",
         component: () => import("src/pages/PageArtisans.vue"),
       },
       {
-        path: "profile", // Relative path without leading slash
+        path: "artisan-dashboard",
+        component: () => import("src/pages/PageArtisanDashboard.vue"),
+      },
+      {
+        path: "shop-owner-dashboard",
+        component: () => import("src/pages/PageShopOwnerDashboard.vue"),
+      },
+      {
+        path: "create-job",
+        component: () => import("src/pages/PageCreateJob.vue"),
+      },
+      {
+        path: "job/:id",
+        component: () => import("src/pages/PageJobDetails.vue"),
+      },
+      {
+        path: "create-group",
+        component: () => import("src/pages/PageCreateGroup.vue"),
+      },
+      {
+        path: "group/:id",
+        component: () => import("src/pages/PageGroupDetails.vue"),
+      },
+      {
+        path: "profile",
         component: () => import("src/pages/Profile/PageProfile.vue"),
         children: [
           {
-            path: "settings", // Relative path without leading slash
+            path: "settings",
             component: () => import("src/pages/Profile/PageSettings.vue"),
             children: [
               {
-                path: "themes", // Relative path without leading slash
+                path: "themes",
                 component: () => import("src/pages/Profile/PageThemes.vue"),
               },
               {
-                path: "supportplumartisans", // Relative path without leading slash
+                path: "supportplumartisans",
                 component: () =>
                   import("src/pages/Profile/PageSupportPlumArtisans.vue"),
                 children: [
                   {
-                    path: "agentapp", // Relative path without leading slash
+                    path: "agentapp",
                     component: () =>
                       import("src/pages/Profile/PageAgentApplicationForm.vue"),
                   },
@@ -40,24 +62,29 @@ const routes = [
             ],
           },
           {
-            path: "payments", // Relative path without leading slash
+            path: "payments",
             component: () =>
               import("src/pages/Profile/Payments/PagePayments.vue"),
             name: "Payments",
             children: [
               {
-                path: "mpesawallet", // Relative path without leading slash
+                path: "payment-history", // New route for payment history
+                component: () =>
+                  import("src/pages/Profile/Payments/PagePaymentHistory.vue"),
+              },
+              {
+                path: "mpesawallet",
                 component: () => import("pages/Profile/Payments/PageMpesa.vue"),
                 name: "mpesawallet",
                 children: [
                   {
-                    path: "sendmpesa", // Relative path without leading slash
+                    path: "sendmpesa",
                     component: () =>
                       import("pages/Profile/Payments/PageSendMpesa.vue"),
                     name: "sendmpesa",
                   },
                   {
-                    path: "lipanampesa", // Relative path without leading slash
+                    path: "lipanampesa",
                     component: () =>
                       import("pages/Profile/Payments/PageLipaNaMpesa.vue"),
                     name: "lipanampesa",
@@ -65,13 +92,13 @@ const routes = [
                 ],
               },
               {
-                path: "airtelwallet", // Relative path without leading slash
+                path: "airtelwallet",
                 component: () =>
                   import("pages/Profile/Payments/PageAirtelMoney.vue"),
                 name: "airtelwallet",
                 children: [
                   {
-                    path: "sendairtelmoney", // Relative path without leading slash
+                    path: "sendairtelmoney",
                     component: () =>
                       import("pages/Profile/Payments/PageSendAirtelMoney.vue"),
                     name: "sendairtelmoney",
@@ -79,13 +106,13 @@ const routes = [
                 ],
               },
               {
-                path: "telkomwallet", // Relative path without leading slash
+                path: "telkomwallet",
                 component: () =>
                   import("pages/Profile/Payments/PageTelkomMoney.vue"),
                 name: "telkomwallet",
                 children: [
                   {
-                    path: "sendtelkommoney", // Relative path without leading slash
+                    path: "sendtelkommoney",
                     component: () =>
                       import("pages/Profile/Payments/PageSendTelkomMoney.vue"),
                     name: "sendtelkommoney",
@@ -93,13 +120,13 @@ const routes = [
                 ],
               },
               {
-                path: "paypalwallet", // Relative path without leading slash
+                path: "paypalwallet",
                 component: () =>
                   import("pages/Profile/Payments/PagePayPalMoney.vue"),
                 name: "paypalwallet",
                 children: [
                   {
-                    path: "sendpaypalmoney", // Relative path without leading slash
+                    path: "sendpaypalmoney",
                     component: () =>
                       import("pages/Profile/Payments/PageSendPayPalMoney.vue"),
                     name: "sendpaypalmoney",
@@ -107,13 +134,13 @@ const routes = [
                 ],
               },
               {
-                path: "pesalinkwallet", // Relative path without leading slash
+                path: "pesalinkwallet",
                 component: () =>
                   import("pages/Profile/Payments/PagePesalinkMoney.vue"),
                 name: "pesalinkwallet",
                 children: [
                   {
-                    path: "sendpesalinkmoney", // Relative path without leading slash
+                    path: "sendpesalinkmoney",
                     component: () =>
                       import(
                         "pages/Profile/Payments/PageSendPesalinkMoney.vue"
@@ -128,7 +155,6 @@ const routes = [
       },
     ],
   },
-
   {
     path: "/:catchAll(.*)*", // Catch-all route for 404 errors
     component: () => import("pages/Error404.vue"),

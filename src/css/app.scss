@@ -2,8 +2,7 @@
 @import "./text-sizes";
 @import "./plum-styles";
 
-// Move declarations above the nested rules
-
+// Footer
 .q-footer {
   z-index: 3000;
   background: var(--primary-bg);
@@ -13,8 +12,10 @@
   }
 }
 
+// Page Styling
 .page {
   z-index: 1000;
+
   &-child {
     z-index: 7000;
   }
@@ -68,6 +69,7 @@
   }
 }
 
+// Constraints
 .constrain {
   max-width: 975px;
   margin: 0 auto;
@@ -134,18 +136,18 @@
   }
 }
 
+// Animations
 .slideInRight,
 .slideOutRight {
-  -webkit-animation-duration: 0.4s;
-  -moz-animation-duration: 0.4s;
-  -o-animation-duration: 0.4s;
   animation-duration: 0.4s;
 }
 
+// Header
 .q-header {
   background: var(--primary-bg);
 }
 
+// Toolbar
 .q-toolbar {
   @media (min-width: $breakpoint-sm-min) {
     height: 58px;
@@ -160,6 +162,7 @@
   }
 }
 
+// Blink Animation
 @keyframes blink {
   0%,
   100% {

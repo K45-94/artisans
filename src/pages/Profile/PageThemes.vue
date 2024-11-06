@@ -1,3 +1,4 @@
+<!--src/pages/Profile/PageThemes.vue -->
 <template>
   <page :class="backgroundClass">
     <page-header>

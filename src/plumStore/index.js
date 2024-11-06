@@ -1,3 +1,4 @@
+// src/plumStore/index.js
 import { reactive } from "vue";
 
 const state = reactive({
@@ -14,8 +15,8 @@ const state = reactive({
     },
   ],
   usePageTransition: false,
-  theme: "dark-blue", // Default theme
-  textColor: "", // Default text color
+  theme: "dark-red",
+  textColor: "ffffff",
   textColorOptions: {},
   craftOptions: [],
   locations: [],
