@@ -12,7 +12,7 @@
           <q-list class="full-width">
             <q-item to="/profile/payments/mpesawallet" clickable>
               <q-item-section avatar class="col-4">
-                <q-avatar color="info"> M </q-avatar>
+                <q-avatar> M </q-avatar>
               </q-item-section>
               <q-item-section class="col-4">
                 <q-item-label class="text-bold absolute-center"
@@ -34,7 +34,7 @@
             <q-space class="q-pa-sm" />
             <q-item to="/profile/payments/airtelwallet" clickable>
               <q-item-section avatar class="col-4">
-                <q-avatar color="info"> A </q-avatar>
+                <q-avatar> A </q-avatar>
               </q-item-section>
               <q-item-section class="col-4">
                 <q-item-label class="text-bold absolute-center"
@@ -55,7 +55,7 @@
             <q-space class="q-pa-sm" />
             <q-item to="/profile/payments/telkomwallet" clickable>
               <q-item-section avatar class="col-4">
-                <q-avatar color="info"> T </q-avatar>
+                <q-avatar> T </q-avatar>
               </q-item-section>
               <q-item-section class="col-4">
                 <q-item-label class="text-bold absolute-center"
@@ -76,7 +76,7 @@
             <q-space class="q-pa-sm" />
             <q-item to="/profile/payments/paypalwallet" clickable>
               <q-item-section avatar class="col-4">
-                <q-avatar color="info"> PP </q-avatar>
+                <q-avatar> PP </q-avatar>
               </q-item-section>
               <q-item-section class="col-4">
                 <q-item-label class="text-bold absolute-center"
@@ -99,7 +99,7 @@
             <q-space class="q-pa-sm" />
             <q-item to="/profile/payments/pesalinkwallet" clickable>
               <q-item-section avatar class="col-4">
-                <q-avatar color="info"> P </q-avatar>
+                <q-avatar> P </q-avatar>
               </q-item-section>
               <q-item-section class="col-4">
                 <q-item-label class="text-bold absolute-center"

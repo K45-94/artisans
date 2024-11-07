@@ -1,89 +1,202 @@
+// src/css/plum-styles.scss
 :root {
+  /* Gradient Colors */
+  --gradient-color-1: #33ac51;
+  --gradient-color-2: #a3b4a7;
+  --gradient-color-3: #6be289;
+  --gradient-color-4: #a3b4a7;
+  --gradient-color-5: #33ac51;
+
+  /* Theme Colors */
   --primary-bg: var(--q-color-primary);
   --secondary-bg: var(--q-color-secondary);
+  --accent-bg: var(--q-color-accent);
   --shadow-color: var(--q-shadow-color);
 }
 
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(
+    90.13deg,
+    var(--gradient-color-1),
+    var(--gradient-color-2),
+    var(--gradient-color-3),
+    var(--gradient-color-4),
+    var(--gradient-color-5)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bright Green Theme */
 .bright-green {
   background-color: #b2ff66 !important;
   --primary-bg: #b2ff66;
-  --secondary-bg: #180b0b; // Update this as needed
+  --secondary-bg: #180b0b;
+  --accent-bg: #180b0b;
+
+  --login-bg: #091208;
   --shadow-color: rgba(0, 128, 0, 0.5);
+  --gradient-color-1: #ffffff;
+  --gradient-color-2: #aa4d4d;
+  --gradient-color-3: #993333;
+  --gradient-color-4: #aa4d4d;
+  --gradient-color-5: #800000;
 }
 
+/* Dark Green Theme */
 .dark-green {
-  background-color: #005500 !important;
-  --primary-bg: #005500;
-  --secondary-bg: #bbbbbb; // Update this as needed
-  --shadow-color: rgba(0, 55, 0, 0.5);
+  background-color: #020c02 !important;
+  --primary-bg: #020c02;
+  --secondary-bg: #bbbbbb;
+  --accent-bg: #bbbbbb;
+
+  --login-bg: #111a11;
+  --shadow-color: rgba(0, 55, 0, 0.712);
+  --gradient-color-1: #00040a;
+  --gradient-color-2: #99ccff;
+  --gradient-color-3: #00040a;
+  --gradient-color-4: #99ccff;
+  --gradient-color-5: #000000;
 }
 
+/* Bright Blue Theme */
 .bright-blue {
   background-color: #66b3ff !important;
   --primary-bg: #66b3ff;
-  --secondary-bg: #180b0b; // Update this as needed
+  --secondary-bg: #180b0b;
+  --accent-bg: #180b0b;
+
+  --login-bg: #2081b1;
   --shadow-color: rgba(0, 0, 128, 0.5);
+  --gradient-color-1: #000000;
+  --gradient-color-2: #ffff99;
+  --gradient-color-3: #000000;
+  --gradient-color-4: #ffff99;
+  --gradient-color-5: #cccc33;
 }
 
+/* Dark Blue Theme */
 .dark-blue {
   background-color: #000055 !important;
   --primary-bg: #000055;
-  --secondary-bg: #bbbbbb; // Update this as needed
+  --secondary-bg: #bbbbbb;
+  --accent-bg: #bbbbbb;
+  --login-bg: #2b0249;
   --shadow-color: rgba(0, 0, 55, 0.5);
+  --gradient-color-1: #00ff04;
+  --gradient-color-2: #4a6b4a;
+  --gradient-color-3: #2a8b2a;
+  --gradient-color-4: #4a6b4a;
+  --gradient-color-5: #00ff04;
 }
 
+/* Bright Red Theme */
 .bright-red {
   background-color: #ff6666 !important;
   --primary-bg: #ff6666;
-  --secondary-bg: #180b0b; // Update this as needed
+  --secondary-bg: #180b0b;
+  --accent-bg: #180b0b;
+
+  --login-bg: #ffc2c2;
   --shadow-color: rgba(128, 0, 0, 0.5);
+  --gradient-color-1: #000000;
+  --gradient-color-2: #a3b4a7;
+  --gradient-color-3: #6be289;
+  --gradient-color-4: #a3b4a7;
+  --gradient-color-5: #33ac51;
 }
 
+/* Dark Red Theme */
 .dark-red {
   background-color: #550000 !important;
   --primary-bg: #550000;
-  --secondary-bg: #bbbbbb; // Update this as needed
+  --secondary-bg: #bbbbbb;
+  --accent-bg: #bbbbbb;
+  --login-bg: #330202;
   --shadow-color: rgba(55, 0, 0, 0.5);
+  --gradient-color-1: #ebebf3;
+  --gradient-color-2: #9191d9;
+  --gradient-color-3: #4242a9;
+  --gradient-color-4: #a5a5db;
+  --gradient-color-5: #1a1a80;
 }
 
+/* Bright Yellow Theme */
 .bright-yellow {
   background-color: #ffff66 !important;
   --primary-bg: #ffff66;
-  --secondary-bg: #180b0b; // Update this as needed
+  --secondary-bg: #180b0b;
+  --accent-bg: #180b0b;
+  --login-bg: #5250a5;
   --shadow-color: rgba(128, 128, 0, 0.5);
+  --gradient-color-1: #00040a;
+  --gradient-color-2: #99ccff;
+  --gradient-color-3: #00040a;
+  --gradient-color-4: #99ccff;
+  --gradient-color-5: #000000;
 }
 
-// Component-specific styles
+/* Bright White Theme */
+.bright-white {
+  background-color: #ffffff !important;
+  --primary-bg: #ffffff;
+  --secondary-bg: #000000;
+  --accent-bg: #000000;
+
+  --login-bg: #9c9c9c;
+  --shadow-color: rgba(128, 128, 0, 0.5);
+  --gradient-color-1: #00040a;
+  --gradient-color-2: #ffffff;
+  --gradient-color-3: #000000;
+  --gradient-color-4: #ffffff;
+  --gradient-color-5: #000000;
+}
+
+/* Component-specific styles */
 .q-tab-panel,
 .q-form,
 .q-input,
 .q-field,
 .q-portal,
 .q-card,
+.q-avatar,
+.q-table,
+.q-table__card,
 .plum-send-money-form-component {
   background-color: var(--primary-bg);
 }
-.q-tab-panels {
+
+.q-tab-panels,
+.narrow-indicator {
   background-color: var(--secondary-bg);
 }
-.q-field__control,
+
 .q-btn__content,
 .q-tab__label,
 .q-item__label,
 .q-input,
+.q-card,
+.q-scrollarea,
 .q-toggle__label,
 .q-icon {
   -webkit-text-fill-color: var(--secondary-bg);
 }
 
+.q-field__control,
 .q-placeholder {
   -webkit-text-fill-color: var(--primary-bg);
 }
+
 .q-field__native,
+.q-field__label,
 .q-field__prefix {
   -webkit-text-fill-color: var(--accent-bg);
 }
 
+/* Table Styles */
 .table-title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -119,23 +232,4 @@
 
 .custom-table tbody tr:hover {
   background-color: #f9f9f9;
-}
-
-.text-brand {
-  color: var(--q-info);
-}
-
-.text-gradient {
-  background: linear-gradient(
-    90.13deg,
-    #33ac51,
-    #a3b4a7,
-    #6be289,
-    #a3b4a7,
-    #33ac51
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
 }

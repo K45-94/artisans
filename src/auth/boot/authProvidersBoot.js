@@ -1,7 +1,7 @@
 // src/auth/boot/authProvidersBoot.js
 import { boot } from "quasar/wrappers";
 import { AuthPlugin } from "@vueauth/core";
-import supabaseConfig from "app/config/supabase";
+import supabaseConfig from "../../config/supabase";
 import {
   SupabasePlugin,
   useIdentityPasswordRegister,

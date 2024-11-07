@@ -7,7 +7,7 @@
     ]"
   >
     <div class="q-toolbar row no-wrap items-center">
-      <slot name="button-left" />
+      <slot name="button-left" class="text-gradient" />
       <div
         class="page-header-title q-toolbar__title ellipsis q-pl-none q-ml-md text-weight-light text-center text-body1"
       >

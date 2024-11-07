@@ -14,8 +14,8 @@ const state = reactive({
     },
   ],
   usePageTransition: false,
-  theme: "dark-blue", // Default theme
-  textColor: "", // Default text color
+  theme: "dark-blue",
+  textColor: "",
   textColorOptions: {},
   craftOptions: [],
   locations: [],

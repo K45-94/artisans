@@ -1,15 +1,19 @@
 // src/css/quasar.variables.scss
+// Primary Colors
 $primary: #03350f;
 $secondary: #33ac51;
 $accent: #abb3ad;
 
+// Status Colors
 $positive: #466365;
 $negative: #c5b800;
 $info: #1da1f2;
 $warning: #ffa5d6;
 
-$shadow-color: #021f09 !default;
+// Shadow Color
+$shadow-color: #021f09;
 
+// Animation for Layout
 .q-body--layout-animate {
   .q-drawer {
     transition:

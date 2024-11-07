@@ -14,7 +14,6 @@
               <q-tabs
                 v-model="tab"
                 dense
-                class="text-grey"
                 active-color="positive"
                 indicator-color="accent"
                 align="justify"

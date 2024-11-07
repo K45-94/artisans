@@ -65,7 +65,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--secondary-bg);
+  background: var(--login-bg);
 }
 
 .login-container {

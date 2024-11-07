@@ -11,15 +11,7 @@
         <div class="row q-col-gutter-lg">
           <div class="col-12 col-sm-8">
             <q-card>
-              <q-tabs
-                v-model="tab"
-                dense
-                class="text-grey"
-                active-color="positive"
-                indicator-color="info"
-                align="justify"
-                narrow-indicator
-              >
+              <q-tabs v-model="tab" dense align="justify" narrow-indicator>
                 <q-tab name="sendmoney" label="Send money" />
                 <q-tab name="othernetwork" label="Other network" />
               </q-tabs>
