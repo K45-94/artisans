@@ -17,7 +17,6 @@
     "@rive-app/canvas": "^2.21.5",
     "@supabase/supabase-js": "^1.35.7",
     "@vueauth/supabase": "^1.0.0-alpha.20",
-    "axios": "^1.7.3",
     "core-js": "^3.38.0",
     "dotenv": "^16.4.5",
     "quasar": "^2.16.8",
