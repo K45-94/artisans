@@ -1,7 +1,7 @@
 <template>
   <page>
     <page-header>
-      <template #title> PROFILE </template>
+      <template #title>PROFILE</template>
 
       <template #logout-button v-if="isAuthenticated">
         <LogoutButton label="logout" flat />
@@ -11,7 +11,7 @@
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
         <div class="row q-col-gutter-lg">
           <div class="col-12 col-sm-8">
-            <q-list class="full-width">
+            <q-list class="full-width" v-if="isAuthenticated">
               <q-item clickable @click="toggleProfileDetails">
                 <q-item-section avatar class="col-4">
                   <q-avatar icon="eva-person-outline"></q-avatar>
@@ -58,7 +58,7 @@
                     v-model="profile.availability"
                     label="Availability"
                     type="text"
-                    class=""
+                    class="q-mt-md"
                   />
                   <q-btn type="submit" label="Update Profile" class="q-mt-md" />
                 </q-form>
@@ -120,8 +120,8 @@ import { defineComponent, ref, computed } from "vue";
 import { Notify } from "quasar";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
-import LogoutButton from "src/auth/components/LogoutButton.vue";
 import PageBody from "src/components/PagePlumComponent/PageBody.vue";
+import LogoutButton from "src/auth/components/LogoutButton.vue";
 import { usePlumAuthState } from "src/auth/composables/usePlumAuthState";
 import store from "src/plumStore";
 

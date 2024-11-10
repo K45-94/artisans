@@ -1,3 +1,4 @@
+// src/auth/boot/registerAuthRoutes.js
 import { boot } from "quasar/wrappers";
 
 export default boot(({ router }) => {

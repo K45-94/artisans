@@ -1,4 +1,3 @@
-<!--src/pages/Profile/PageAgentApplicationForm.vue-->
 <template>
   <page>
     <page-header>
@@ -69,7 +68,11 @@
                 multiple
                 class="q-mb-md"
               />
-
+              <q-checkbox
+                v-model="form.assignCurrentUser"
+                label="Assign me as an employee"
+                class="q-mb-md"
+              />
               <q-btn
                 label="Submit Application"
                 type="submit"
@@ -93,6 +96,7 @@ import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
 import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
 import PageBody from "src/components/PagePlumComponent/PageBody.vue";
 import { useQuasar } from "quasar";
+import store from "src/plumStore";
 
 export default defineComponent({
   components: { Page, PageHeader, PageHeaderButtonBackLeft },
@@ -107,6 +111,7 @@ export default defineComponent({
       shopLocation: "",
       servicesOffered: "",
       documents: [],
+      assignCurrentUser: false,
     });
 
     const handleSubmit = () => {
@@ -120,6 +125,11 @@ export default defineComponent({
 
       // Process the form submission logic here
       console.log("Form submitted:", form);
+
+      if (form.assignCurrentUser) {
+        // Assign the current user as an employee
+        store.assignCurrentUserToShop(form.name);
+      }
     };
 
     return {

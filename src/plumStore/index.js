@@ -22,6 +22,14 @@ const state = reactive({
   artisans: [],
   groups: [],
   shops: [],
+  user: {
+    displayName: "",
+    username: "",
+    email: "",
+    jobCategory: "",
+    availability: "",
+  },
+  isAuthenticated: false,
 });
 
 const store = {
@@ -49,6 +57,16 @@ const store = {
 
   setAuthenticationStatus(isAuthenticated) {
     this.state.isAuthenticated = isAuthenticated;
+  },
+
+  assignCurrentUserToShop(shopName) {
+    const newShop = {
+      name: shopName,
+      owner: this.state.user.email,
+      employees: [this.state.user.email],
+    };
+    this.state.shops.push(newShop);
+    console.log("Shop registered:", newShop);
   },
 };
 
