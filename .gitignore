@@ -38,3 +38,4 @@ yarn-error.log*
 .env
 config/supabase.js
 src/supabaseClient.js
+project-structure.txt

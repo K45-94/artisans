@@ -11,12 +11,39 @@
       <div class="q-pt-lg q-pb-md q-pl-md q-pr-md">
         <div class="row q-col-gutter-lg">
           <div class="col-12 col-sm-8">
-            <q-card class="q-mb-md" flat v-if="isAuthenticated">
+            <q-list class="full-width">
+              <q-item clickable @click="toggleProfileDetails">
+                <q-item-section avatar class="col-4">
+                  <q-avatar icon="eva-person-outline"></q-avatar>
+                </q-item-section>
+                <q-item-section class="col-4">
+                  <q-item-label class="text-bold absolute-center">
+                    Profile Details
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section class="col-4">
+                  <q-btn
+                    class="absolute-right"
+                    :icon="
+                      profileDetailsVisible
+                        ? 'eva-arrow-ios-downward-outline'
+                        : 'eva-arrow-ios-forward-outline'
+                    "
+                    flat
+                    dense
+                    color="secondary"
+                  />
+                </q-item-section>
+              </q-item>
+            </q-list>
+
+            <q-card
+              class="q-mb-md"
+              flat
+              v-if="isAuthenticated && profileDetailsVisible"
+            >
               <q-card-section>
-                <q-btn class="text-h6" flat>Profile Details</q-btn>
-              </q-card-section>
-              <q-card-section>
-                <q-form @submit="updateProfile">
+                <q-form @submit.prevent="updateProfile">
                   <q-input v-model="profile.displayName" label="Display Name" />
                   <q-input v-model="profile.username" label="Username" />
                   <q-input v-model="profile.email" label="Email" disable />
@@ -37,6 +64,7 @@
                 </q-form>
               </q-card-section>
             </q-card>
+
             <q-list class="full-width">
               <q-item to="/profile/settings" clickable>
                 <q-item-section avatar class="col-4">
@@ -89,6 +117,7 @@
 
 <script>
 import { defineComponent, ref, computed } from "vue";
+import { Notify } from "quasar";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
 import LogoutButton from "src/auth/components/LogoutButton.vue";
@@ -106,15 +135,32 @@ export default defineComponent({
   setup() {
     const { isAuthenticated, isShopOwner } = usePlumAuthState();
 
-    const profile = ref(store.state.user || {});
+    // Use a deep copy to avoid directly mutating the state
+    const profile = ref({ ...store.state.user });
 
     const craftOptions = computed(() => store.state.craftOptions);
+    const profileDetailsVisible = ref(false);
 
-    const updateProfile = () => {
-      if (profile.value) {
+    const toggleProfileDetails = () => {
+      profileDetailsVisible.value = !profileDetailsVisible.value;
+    };
+
+    const updateProfile = async () => {
+      try {
         // Logic to update profile in the store
         store.setUserDetails(profile.value);
         console.log("Profile updated:", profile.value);
+        Notify.create({
+          type: "positive",
+          message: "Profile updated successfully!",
+        });
+        // TODO: Add logic to update profile in the backend (e.g., Supabase)
+      } catch (error) {
+        console.error("Failed to update profile:", error);
+        Notify.create({
+          type: "negative",
+          message: "Failed to update profile. Please try again.",
+        });
       }
     };
 
@@ -126,6 +172,8 @@ export default defineComponent({
       isShopOwner,
       profile,
       craftOptions,
+      profileDetailsVisible,
+      toggleProfileDetails,
       updateProfile,
     };
   },
