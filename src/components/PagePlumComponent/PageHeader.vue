@@ -16,7 +16,7 @@
         </span>
       </div>
       <slot name="button-right" />
-      <div class="logout-button">
+      <div class="logout-button text-gradient">
         <slot name="logout-button"></slot>
       </div>
     </div>
