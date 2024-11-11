@@ -111,7 +111,7 @@
                   />
                 </q-item-section>
               </q-item>
-              <q-item to="/profile/payments" clickable>
+              <q-item to="/profile/payments" clickable v-if="isAuthenticated">
                 <q-item-section avatar class="col-4">
                   <q-avatar icon="eva-credit-card-outline"></q-avatar>
                 </q-item-section>
