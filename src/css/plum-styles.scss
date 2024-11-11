@@ -34,8 +34,7 @@
     var(--gradient-color-4),
     var(--gradient-color-5)
   );
-  background-size: 20% 200%;
-  animation: gradient-animation 10s infinite alternate;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -275,7 +274,8 @@
   -webkit-text-fill-color: var(--accent-bg);
 }
 
-.q-avatar {
+.q-avatar,
+.q-select__dropdown-icon {
   background: linear-gradient(
     90.13deg,
     var(--gradient-color-1),
