@@ -36,7 +36,32 @@
                 </q-item-section>
               </q-item>
             </q-list>
-
+            <q-list class="full-width" v-if="!isAuthenticated">
+              <q-item clickable :to="{ name: 'auth.login' }">
+                <q-item-section avatar class="col-4">
+                  <q-avatar icon="eva-person-outline"></q-avatar>
+                </q-item-section>
+                <q-item-section class="col-4">
+                  <q-item-label class="text-bold absolute-center">
+                    Login
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section class="col-4">
+                  <q-btn
+                    class="absolute-right"
+                    :icon="
+                      profileDetailsVisible
+                        ? 'eva-arrow-ios-downward-outline'
+                        : 'eva-arrow-ios-forward-outline'
+                    "
+                    flat
+                    dense
+                    color="secondary"
+                    :to="{ name: 'auth.login' }"
+                  />
+                </q-item-section>
+              </q-item>
+            </q-list>
             <q-card
               class="q-mb-md"
               flat
