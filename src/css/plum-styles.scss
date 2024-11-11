@@ -15,6 +15,16 @@
 }
 
 /* Text Gradient */
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
 .text-gradient {
   background: linear-gradient(
     90.13deg,
@@ -24,10 +34,11 @@
     var(--gradient-color-4),
     var(--gradient-color-5)
   );
+  background-size: 200% 200%;
+  animation: gradient-animation 5s infinite alternate;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
 }
 
 /* Bright Green Theme */
@@ -192,7 +203,8 @@
 
 .q-field__native,
 .q-field__label,
-.q-field__prefix {
+.q-field__prefix,
+.q-avatar {
   -webkit-text-fill-color: var(--accent-bg);
 }
 
