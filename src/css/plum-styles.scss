@@ -81,10 +81,10 @@
 
   --login-bg: #2081b1;
   --shadow-color: rgba(0, 0, 128, 0.5);
-  --gradient-color-1: #0066cc;
-  --gradient-color-2: #66d9ff;
-  --gradient-color-3: #33ccff;
-  --gradient-color-4: #66b2ff;
+  --gradient-color-1: #003366;
+  --gradient-color-2: #3a7a8f;
+  --gradient-color-3: #1a6077;
+  --gradient-color-4: #30557a;
   --gradient-color-5: #003366;
 }
 
@@ -158,11 +158,11 @@
 
   --login-bg: #9c9c9c;
   --shadow-color: rgba(128, 128, 0, 0.5);
-  --gradient-color-1: #d9d9d9;
-  --gradient-color-2: #ffffff;
+  --gradient-color-1: #000000;
+  --gradient-color-2: #252525;
   --gradient-color-3: #cccccc;
-  --gradient-color-4: #ffffff;
-  --gradient-color-5: #bfbfbf;
+  --gradient-color-4: #252525;
+  --gradient-color-5: #000000;
 }
 
 @keyframes pulse {
@@ -247,12 +247,6 @@
   background-color: var(--primary-bg);
 }
 
-.q-tab-panels,
-.narrow-indicator {
-  background-color: var(--secondary-bg);
-}
-
-.q-btn__content,
 .q-tab__label,
 .q-item__label,
 .q-input,
@@ -274,8 +268,10 @@
   -webkit-text-fill-color: var(--accent-bg);
 }
 
+.q-btn__content,
 .q-avatar,
-.q-select__dropdown-icon {
+.q-select__dropdown-icon,
+.q-tab__label {
   background: linear-gradient(
     90.13deg,
     var(--gradient-color-1),

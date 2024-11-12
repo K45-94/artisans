@@ -23,7 +23,7 @@
     />
     <div class="row">
       <q-space />
-      <q-btn color="primary" class="" @click="submitForm" label="pay amount" />
+      <q-btn @click="submitForm" label="pay amount" />
     </div>
   </q-form>
 </template>
