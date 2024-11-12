@@ -39,13 +39,7 @@
         />
 
         <!-- Tabs for switching between Artisans, Groups, and Shops -->
-        <q-tabs
-          v-model="currentTab"
-          class="q-my-md"
-          dense
-          indicator-color="secondary"
-          narrow-indicator
-        >
+        <q-tabs v-model="currentTab" class="q-my-md" dense narrow-indicator>
           <q-tab name="artisans" label="Artisans" />
           <q-tab name="groups" label="Groups" />
           <q-tab name="shops" label="Shops" v-if="isAuthenticated" />

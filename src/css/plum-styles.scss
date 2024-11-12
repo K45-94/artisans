@@ -96,8 +96,8 @@
   --accent-bg: #bbbbbb;
   --login-bg: #2b0249;
   --shadow-color: rgba(0, 0, 55, 0.5);
-  --gradient-color-1: #1f3b4d;
-  --gradient-color-2: #507aa3;
+  --gradient-color-1: #395c72;
+  --gradient-color-2: #86a2be;
   --gradient-color-3: #a6c7e1;
   --gradient-color-4: #1c5471;
   --gradient-color-5: #0d1f33;
@@ -112,10 +112,10 @@
 
   --login-bg: #ffc2c2;
   --shadow-color: rgba(128, 0, 0, 0.5);
-  --gradient-color-1: #ff4d4d;
-  --gradient-color-2: #ff6666;
-  --gradient-color-3: #ff9999;
-  --gradient-color-4: #ffb3b3;
+  --gradient-color-1: #660000;
+  --gradient-color-2: #660000;
+  --gradient-color-3: #ff6666;
+  --gradient-color-4: #ff9999;
   --gradient-color-5: #660000;
 }
 
@@ -253,6 +253,7 @@
 .q-card,
 .q-scrollarea,
 .q-toggle__label,
+.q-indicator,
 .q-icon {
   -webkit-text-fill-color: var(--secondary-bg);
 }
@@ -281,7 +282,7 @@
     var(--gradient-color-5)
   );
   background-size: 20% 200%;
-  animation: gradient-animation 15s infinite alternate;
+  animation: gradient-animation 25s infinite alternate;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
