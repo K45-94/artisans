@@ -80,7 +80,7 @@
               color="secondary"
               class="full-width"
               flat
-              to="/profile/settings/supportplumartisans/agentapp"
+              to="/profile/settings/supportplumartisans/create-shop"
             >
             </q-btn>
           </div>

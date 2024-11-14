@@ -1,11 +1,7 @@
-<!--src/pages/Profile/PageAgentApplicationForm.vue-->
 <template>
   <page>
     <page-header>
-      <template #button-left>
-        <page-header-button-back-left label="back" />
-      </template>
-      <template #title>AGENT APPLICATION</template>
+      <template #title>SHOP APPLICATION</template>
     </page-header>
     <page-body>
       <div class="q-pt-lg q-pb-md q-pl-lg q-pr-lg">
@@ -20,7 +16,7 @@
             <q-form @submit="handleSubmit" class="q-mb-md">
               <q-input
                 v-model="form.name"
-                label="Name of the Agent"
+                label="Name of the Shop"
                 outlined
                 class="q-mb-md"
                 :rules="[(val) => !!val || 'Name is required']"
@@ -94,14 +90,13 @@
 import { defineComponent, reactive } from "vue";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
-import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
 import PageBody from "src/components/PagePlumComponent/PageBody.vue";
 import { useQuasar } from "quasar";
 import store from "src/plumStore";
 
 export default defineComponent({
-  components: { Page, PageHeader, PageHeaderButtonBackLeft, PageBody },
-  name: "PageAgentApplicationForm",
+  components: { Page, PageHeader, PageBody },
+  name: "PageCreateShop",
   setup() {
     const $q = useQuasar();
     const form = reactive({
@@ -140,12 +135,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.q-mb-md {
-  margin-bottom: 1rem;
-}
-.full-width {
-  width: 100%;
-}
-</style>

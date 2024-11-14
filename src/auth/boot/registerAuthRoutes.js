@@ -107,10 +107,10 @@ export default boot(({ router }) => {
                   import("src/pages/Profile/PageSupportPlumArtisans.vue"),
                 children: [
                   {
-                    path: "agentapp",
+                    path: "create-shop",
                     meta: { authOnly: true },
                     component: () =>
-                      import("src/pages/Profile/PageAgentApplicationForm.vue"),
+                      import("src/pages/Profile/PageCreateShop.vue"),
                   },
                 ],
               },

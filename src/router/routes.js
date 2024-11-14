@@ -54,9 +54,9 @@ const routes = [
                   import("src/pages/Profile/PageSupportPlumArtisans.vue"),
                 children: [
                   {
-                    path: "agentapp",
+                    path: "create-shop",
                     component: () =>
-                      import("src/pages/Profile/PageAgentApplicationForm.vue"),
+                      import("src/pages/Profile/PageCreateShop.vue"),
                   },
                 ],
               },
