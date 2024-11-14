@@ -1,4 +1,5 @@
-import { usePasswordResetViaEmail } from '@vueauth/core'
+// src/auth/composables/usePasswordReset.js
+import { usePasswordResetViaEmail } from "@vueauth/core";
 
 export default () => {
   const {
@@ -11,11 +12,11 @@ export default () => {
     validationErrors,
     errors,
     resetErrors,
-    hasErrors
-  } = usePasswordResetViaEmail()
+    hasErrors,
+  } = usePasswordResetViaEmail();
 
-  async function onResetClicked () {
-    await reset()
+  async function onResetClicked() {
+    await reset();
   }
 
   return {
@@ -29,6 +30,6 @@ export default () => {
     validationErrors,
     errors,
     hasErrors,
-    resetErrors
-  }
-}
+    resetErrors,
+  };
+};

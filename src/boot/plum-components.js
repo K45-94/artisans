@@ -1,3 +1,4 @@
+// // src/boot/plum-components.js
 import { boot } from "quasar/wrappers";
 
 const plumComponents = {

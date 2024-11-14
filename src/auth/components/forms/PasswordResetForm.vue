@@ -1,3 +1,4 @@
+<!--src/auth/components/forms/PasswordResetForm.vue-->
 <script setup>
 defineProps({
   email: {

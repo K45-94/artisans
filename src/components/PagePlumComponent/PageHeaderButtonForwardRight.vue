@@ -1,3 +1,4 @@
+<!-- src/components/PagePlumComponent/PageHeaderButtonForwardRight.vue -->
 <template>
   <q-btn
     icon-right="chevron_right"

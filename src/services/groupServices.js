@@ -1,3 +1,4 @@
+// src/services/groupServices.js
 import supabase from "src/config/supabase";
 
 export async function fetchGroups() {

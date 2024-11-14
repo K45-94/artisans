@@ -1,4 +1,5 @@
-import { useUpdatePassword } from '@vueauth/core'
+// src/auth/composables/useChangePassword.js
+import { useUpdatePassword } from "@vueauth/core";
 
 export default () => {
   const {
@@ -11,8 +12,8 @@ export default () => {
     hasValidationErrors,
     requiresReauthentication,
     resetErrors,
-    resetForm
-  } = useUpdatePassword()
+    resetForm,
+  } = useUpdatePassword();
 
   return {
     update,
@@ -25,6 +26,6 @@ export default () => {
     hasErrors,
     validationErrors,
     hasValidationErrors,
-    resetErrors
-  }
-}
+    resetErrors,
+  };
+};

@@ -1,3 +1,4 @@
+<!-- src/components/PagePlumComponent/PlumApplicationButton.vue -->
 <template>
   <q-btn class="center" unelevated dense label="Apply" color="secondary" />
 </template>

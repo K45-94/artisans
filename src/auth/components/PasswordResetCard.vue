@@ -1,5 +1,5 @@
+<!--src/auth/components/PasswordResetCard.vue-->
 <script setup>
-import { QCard, QCardSection, QBtn } from "quasar";
 import usePasswordReset from "auth/composables/usePasswordReset";
 import ErrorsBanner from "./ErrorsBanner.vue";
 import PasswordResetForm from "./forms/PasswordResetForm.vue";

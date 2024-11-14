@@ -1,3 +1,4 @@
+<!--src/components/PagePlumComponent/PlumHeaderSearch.vue-->
 <template>
   <q-input />
 </template>

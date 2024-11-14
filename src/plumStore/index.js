@@ -1,3 +1,4 @@
+// src/plumStore/index.js
 import { reactive } from "vue";
 
 const state = reactive({

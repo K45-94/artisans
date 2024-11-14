@@ -1,3 +1,4 @@
+<!-- src/auth/components/AccountMenu/LogoutItem.vue -->
 <script setup>
 import useLogout from "auth/composables/useLogout";
 

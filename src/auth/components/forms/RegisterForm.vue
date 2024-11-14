@@ -1,4 +1,4 @@
-// src/auth/components/forms/RegisterForm.vue
+<!--src/auth/components/forms/RegisterForm.vue-->
 <template>
   <q-form @submit.prevent="onSubmit">
     <q-input

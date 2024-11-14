@@ -1,3 +1,4 @@
+<!--src/auth/pages/PasswordResetRequestViaEmailPage.vue-->
 <script setup>
 import PasswordResetRequestCard from "src/auth/components/PasswordResetRequestCard.vue";
 </script>

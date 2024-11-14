@@ -1,3 +1,4 @@
+<!--src/auth/components/ErrorsBanner.vue-->
 <template>
   <div>
     <ul v-if="errors && errors.length">

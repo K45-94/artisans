@@ -1,3 +1,4 @@
+// src/services/artisanServices.js
 import supabase from "src/config/supabase";
 
 export async function fetchArtisans() {

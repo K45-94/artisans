@@ -1,3 +1,4 @@
+<!--src/layouts/PlumLayout.vue-->
 <template>
   <q-layout
     :class="themeClass"

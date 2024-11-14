@@ -1,3 +1,4 @@
+// src/services/shopServices.js
 import supabase from "src/config/supabase";
 
 export async function fetchShops() {

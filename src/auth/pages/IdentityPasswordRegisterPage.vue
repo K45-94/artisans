@@ -1,4 +1,4 @@
-// src/auth/pages/IdentityPasswordRegisterPage.vue
+<!--src/auth/pages/IdentityPasswordRegisterPage.vue-->
 <script setup>
 import AuthRegisterCard from "src/auth/components/RegisterCard.vue";
 </script>

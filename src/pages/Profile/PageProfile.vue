@@ -1,3 +1,4 @@
+<!--src/pages/Profile/PageProfile.vue-->
 <template>
   <page>
     <page-header>

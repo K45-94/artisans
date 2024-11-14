@@ -1,3 +1,4 @@
+<!--src/auth/components/forms/UpdatePasswordForm.vue-->
 <script setup>
 defineProps({
   email: {

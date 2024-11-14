@@ -1,3 +1,4 @@
+// src/use/useGoBack.js
 import { routerInstance } from "boot/router";
 
 export default function useGoBack() {

@@ -1,3 +1,4 @@
+<!--src/pages/Profile/PageSettings.vue-->
 <template>
   <page>
     <page-header>

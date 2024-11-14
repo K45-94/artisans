@@ -1,3 +1,4 @@
+<!-- src/components/PagePlumComponent/PageSettingsButton.vue -->
 <template>
   <q-btn
     icon="eva-settings-2"

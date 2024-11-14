@@ -1,3 +1,4 @@
+<!-- src/auth/components/AccountMenu/AccountMenu.vue -->
 <script setup>
 import AuthUpdatePasswordDialog from "src/auth/components/dialogs/UpdatePasswordDialog.vue";
 import { ref } from "vue";

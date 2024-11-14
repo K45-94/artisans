@@ -1,3 +1,4 @@
+<!--src/components/PagePlumComponent/PlumSendMoneyFormComponent.vue-->
 <template>
   <q-form>
     <q-input

@@ -1,4 +1,4 @@
-// src/auth/components/LoginCard.vue
+<!--src/auth/components/LoginCard.vue-->
 <script setup>
 import AuthLoginForm from "src/auth/components/forms/LoginForm.vue";
 import useLogin from "auth/composables/useLogin";

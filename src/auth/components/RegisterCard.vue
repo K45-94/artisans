@@ -1,4 +1,4 @@
-// src/auth/components/RegisterCard.vue
+<!--src/auth/components/RegisterCard.vue-->
 <script setup>
 import useRegister from "auth/composables/useRegister";
 import AuthRegisterForm from "src/auth/components/forms/RegisterForm.vue";

@@ -1,3 +1,4 @@
+<!--src/components/PagePlumComponent/PlumBuygoodsFormComponent.vue-->
 <template>
   <q-form>
     <q-input

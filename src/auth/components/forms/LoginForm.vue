@@ -1,3 +1,4 @@
+<!--src/auth/components/forms/LoginForm.vue-->
 <script setup>
 defineProps({
   email: {

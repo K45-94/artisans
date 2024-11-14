@@ -1,3 +1,4 @@
+<!--src/pages/Error404.vue-->
 <template>
   <div
     class="fullscreen bg-green text-black text-center q-pa-md flex flex-center"

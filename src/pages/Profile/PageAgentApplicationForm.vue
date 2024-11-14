@@ -1,3 +1,4 @@
+<!--src/pages/Profile/PageAgentApplicationForm.vue-->
 <template>
   <page>
     <page-header>
@@ -99,7 +100,7 @@ import { useQuasar } from "quasar";
 import store from "src/plumStore";
 
 export default defineComponent({
-  components: { Page, PageHeader, PageHeaderButtonBackLeft },
+  components: { Page, PageHeader, PageHeaderButtonBackLeft, PageBody },
   name: "PageAgentApplicationForm",
   setup() {
     const $q = useQuasar();
