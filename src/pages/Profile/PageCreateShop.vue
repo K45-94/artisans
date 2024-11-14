@@ -1,6 +1,9 @@
 <template>
   <page>
     <page-header>
+      <template #button-left>
+        <page-header-button-back-left label="back" />
+      </template>
       <template #title>SHOP APPLICATION</template>
     </page-header>
     <page-body>
@@ -90,12 +93,14 @@
 import { defineComponent, reactive } from "vue";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
+
+import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
 import PageBody from "src/components/PagePlumComponent/PageBody.vue";
 import { useQuasar } from "quasar";
 import store from "src/plumStore";
 
 export default defineComponent({
-  components: { Page, PageHeader, PageBody },
+  components: { Page, PageHeader, PageBody, PageHeaderButtonBackLeft },
   name: "PageCreateShop",
   setup() {
     const $q = useQuasar();
