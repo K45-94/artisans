@@ -105,9 +105,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss">
-.q-card {
-  border-radius: 0;
-}
-</style>

@@ -1,4 +1,3 @@
-<!-- src/pages/Profile/PageThemes.vue -->
 <template>
   <page :class="backgroundClass">
     <page-header>
@@ -24,6 +23,7 @@
                 backgroundColor: shade.backgroundColor,
                 color: shade.textColor,
               }"
+              :label="` ${shade.name}  `"
             >
             </q-btn>
           </div>
@@ -142,7 +142,7 @@ export default {
 .grid-btn-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px; /* Space between buttons */
+  gap: 20px; /* Space between buttons */
 }
 
 .theme-btn {

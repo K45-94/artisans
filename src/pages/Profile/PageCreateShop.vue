@@ -61,13 +61,6 @@
                 class="q-mb-md"
                 :rules="[(val) => !!val || 'Services offered is required']"
               />
-              <q-file
-                v-model="form.documents"
-                label="Upload Relevant Documents"
-                outlined
-                multiple
-                class="q-mb-md"
-              />
               <q-checkbox
                 v-model="form.assignCurrentUser"
                 label="Assign me as an employee"
@@ -91,19 +84,21 @@
 
 <script>
 import { defineComponent, reactive } from "vue";
+import { useRouter } from "vue-router";
+import { useQuasar } from "quasar";
+import { createShop } from "src/services/shopServices";
+import { assignCurrentUserToShop } from "src/services/userServices"; // New function for user assignment
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
-
 import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
 import PageBody from "src/components/PagePlumComponent/PageBody.vue";
-import { useQuasar } from "quasar";
-import store from "src/plumStore";
 
 export default defineComponent({
   components: { Page, PageHeader, PageBody, PageHeaderButtonBackLeft },
   name: "PageCreateShop",
   setup() {
     const $q = useQuasar();
+    const router = useRouter();
     const form = reactive({
       name: "",
       email: "",
@@ -111,25 +106,43 @@ export default defineComponent({
       address: "",
       shopLocation: "",
       servicesOffered: "",
-      documents: [],
       assignCurrentUser: false,
     });
 
-    const handleSubmit = () => {
-      if (!$q.validateForm(form)) {
+    const handleSubmit = async () => {
+      try {
+        if (!$q.validateForm(form)) {
+          $q.notify({
+            type: "negative",
+            message: "Please fill out all required fields.",
+          });
+          return;
+        }
+
+        const newShop = await createShop(form);
+        if (newShop) {
+          $q.notify({
+            type: "positive",
+            message: "Shop created successfully!",
+          });
+
+          if (form.assignCurrentUser) {
+            await assignCurrentUserToShop(newShop.id);
+          }
+
+          router.push(`/shop/${newShop.id}`);
+        } else {
+          $q.notify({
+            type: "negative",
+            message: "Failed to create shop. Please try again.",
+          });
+        }
+      } catch (error) {
         $q.notify({
           type: "negative",
-          message: "Please fill out all required fields.",
+          message: "An error occurred. Please try again.",
         });
-        return;
-      }
-
-      // Process the form submission logic here
-      console.log("Form submitted:", form);
-
-      if (form.assignCurrentUser) {
-        // Assign the current user as an employee
-        store.assignCurrentUserToShop(form.name);
+        console.error("Error submitting form:", error);
       }
     };
 
