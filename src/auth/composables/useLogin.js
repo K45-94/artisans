@@ -1,3 +1,4 @@
+// src/auth/composables/useLogin.js
 import { useRouter } from "vue-router";
 import { useIdentityPasswordLogin, useAuthState } from "@vueauth/core";
 import { supabase } from "src/supabaseClient"; // Import your Supabase client

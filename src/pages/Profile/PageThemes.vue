@@ -1,3 +1,4 @@
+<!--src\pages\Profile\PageThemes.vue-->
 <template>
   <page :class="backgroundClass">
     <page-header>
@@ -14,18 +15,19 @@
         <div v-for="theme in themesList" :key="theme.name" class="theme-group">
           <div class="theme-name">{{ theme.name }}</div>
           <div class="grid-btn-group">
-            <q-btn
+            <div
               v-for="shade in theme.shades"
               :key="shade.name"
-              @click="applyTheme(shade)"
-              class="theme-btn"
+              class="theme-preview"
               :style="{
                 backgroundColor: shade.backgroundColor,
                 color: shade.textColor,
               }"
-              :label="` ${shade.name}  `"
+              :class="{ 'current-theme': isCurrentTheme(shade) }"
+              @click="applyTheme(shade)"
             >
-            </q-btn>
+              <span class="preview-text">Sample Text</span>
+            </div>
           </div>
         </div>
       </div>
@@ -35,7 +37,7 @@
 </template>
 
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 import Page from "src/components/PagePlumComponent/Page.vue";
 import PageHeader from "src/components/PagePlumComponent/PageHeader.vue";
 import PageHeaderButtonBackLeft from "src/components/PagePlumComponent/PageHeaderButtonBackLeft.vue";
@@ -128,11 +130,16 @@ export default {
       store.state.textColor = selectedTextColor.value;
     };
 
+    const isCurrentTheme = (shade) => {
+      return shade.name.toLowerCase().replace(/ /g, "-") === store.state.theme;
+    };
+
     return {
       themesList,
       applyTheme,
       backgroundClass,
       selectedTextColor,
+      isCurrentTheme,
     };
   },
 };
@@ -145,13 +152,20 @@ export default {
   gap: 20px; /* Space between buttons */
 }
 
-.theme-btn {
+.theme-preview {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 44px; /* Adjust height as needed */
+  height: 60px; /* Increase height for better preview */
   border-radius: 5px;
   font-size: 0.85em;
+  cursor: pointer;
+  border: 2px solid transparent; /* Default border */
+}
+
+.current-theme {
+  border: 2px solid #333; /* Highlight for current theme */
+  opacity: 0.9; /* Slightly transparent for visual cue */
 }
 
 .theme-group {
@@ -161,5 +175,9 @@ export default {
 .theme-name {
   font-weight: bold;
   margin-bottom: 8px;
+}
+
+.preview-text {
+  font-family: Arial, sans-serif; /* Example font for better readability */
 }
 </style>
