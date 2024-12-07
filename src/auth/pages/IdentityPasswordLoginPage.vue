@@ -29,6 +29,7 @@ onMounted(() => {
       />
       <div v-if="!isAuthenticated">
         <q-btn
+          v-if="!isAuthenticated"
           class="twitter-login-btn"
           color="info"
           outline

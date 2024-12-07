@@ -33,6 +33,12 @@ export default boot(({ router }) => {
     meta: { unauthOnly: true },
     component: () => import("src/auth/pages/PasswordResetViaEmailPage.vue"),
   });
+  router.addRoute({
+    path: "/auth/callback",
+    name: "auth.callback",
+    meta: { unauthOnly: true },
+    component: () => import("src/auth/pages/AuthCallback.vue"),
+  });
 
   // Main layout route with children
   router.addRoute({

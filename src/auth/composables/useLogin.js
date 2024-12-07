@@ -30,6 +30,12 @@ export default () => {
     }
   }
 
+  // Check for environment in a way that's compatible with both node and browser environments
+  let redirectTo = "http://localhost:8080/auth/callback";
+  if (typeof process !== "undefined" && process.env.NODE_ENV === "production") {
+    redirectTo = "https://plum-cl.netlify.app/#/artisans";
+  }
+
   async function onTwitterLogin() {
     resetErrors();
 
@@ -38,7 +44,7 @@ export default () => {
       const { error } = await supabase.auth.signIn({
         provider: "twitter",
         options: {
-          redirectTo: "https://plum-cl.netlify.app/#/artisans", // Ensure this is correct
+          redirectTo: redirectTo,
         },
       });
 

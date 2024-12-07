@@ -26,7 +26,7 @@
               :class="{ 'current-theme': isCurrentTheme(shade) }"
               @click="applyTheme(shade)"
             >
-              <span class="preview-text">Sample Text</span>
+              <span class="preview-text">{{ shade.name }}</span>
             </div>
           </div>
         </div>
